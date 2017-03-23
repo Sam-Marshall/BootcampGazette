@@ -1,0 +1,2 @@
+assign unique ID to each marker and attach job title/job URL/posted date/address to marker----so users can click on markers and get the info
+set up if/else statement to prevent markers beging generated when submit clicked without input
