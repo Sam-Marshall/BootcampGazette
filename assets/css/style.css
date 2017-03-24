@@ -1,0 +1,12 @@
+.jumbotron {
+    background-color: #eee;
+    color: red;
+    border: solid 4px black;
+    border-radius: 12px;
+    font-family: sans-serif;
+}
+
+#map {
+    height: 400px;
+    width: 75%;
+}
