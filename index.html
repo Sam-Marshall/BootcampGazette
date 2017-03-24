@@ -17,7 +17,12 @@
 
         <div class=jumbotron style="background-color: #eee; color: red; border: solid 4px black; border-radius: 12px; font-family: sans-serif;">  
                   <h1>What's your dream job?</h1>
-                  <input type="text" name="jobtitle" id="job-input">
+                  <label for="job">Job</label>
+                    <input type="text" name="jobtitle" id="job-input" placeholder="ex: Mechanical Engineer"><br>
+                  <label for="city">City</label>
+                    <input type="text" name="cityName" id="city-input" placeholder="ex: Chicago"><br>
+                  <label for="state">State</label>
+                    <input type="text" name="stateName" id="state-input" placeholder="ex: IL"><br><br>
                 <button class="btn btn-info" id="submit-btn">Submit</button>      
         </div>
 
@@ -106,11 +111,13 @@ $(document).ready(function() {
       // marker.setMap(null);
 
       var job = $("#job-input").val().trim();
+      var jobCity= $("#city-input").val().trim();
+      var jobState= $("#state-input").val().trim();
 
       // $('#job-input').empty();
 
-      var queryURL = "http://service.dice.com/api/rest/jobsearch/v1/simple.json?text="+job;
-
+      var queryURL = "http://service.dice.com/api/rest/jobsearch/v1/simple.json?text="+job+"&city="+jobCity+",+"+jobState;
+      console.log(queryURL);
       $.ajax({
         url: queryURL,
         method: "GET"
@@ -126,9 +133,9 @@ $(document).ready(function() {
           //trying to capture job links. Work in progress
           jobUrlArray.push(results[i].detailUrl);
 
-          console.log(jobUrlArray);
+          // console.log(jobUrlArray);
           var city = results[i].location;
-          console.log(city);
+          // console.log(city);
 
           var queryURLcity = "https://maps.googleapis.com/maps/api/geocode/json?address="+city+"&key=AIzaSyB_GC-33tMoeP_2GlBptjFH0ZIcER8Ztqg";
           
