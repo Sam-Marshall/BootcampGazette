@@ -7,48 +7,180 @@
     <title>Jobport Mockup</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/LeaVerou/awesomplete/gh-pages/awesomplete.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
+    <script src="https://cdn.rawgit.com/LeaVerou/awesomplete/gh-pages/awesomplete.min.js"></script>
 </head>
 
 <body>
-    <div class="container">
-        <div class="row text-center">
-            <div class=jumbotron>
-                <h1>What's your dream job?</h1>
-                <label for="job">Job</label>
-                <input type="text" name="jobtitle" id="job-input" placeholder="ex: Mechanical Engineer">
-                <br>
-                <label for="city">City</label>
-                <input type="text" name="cityName" id="city-input" placeholder="ex: Chicago">
-                <br>
-                <label for="state">State</label>
-                <input type="text" name="stateName" id="state-input" placeholder="ex: IL">
-                <br>
-                <br>
-                <button class="btn btn-info" id="submit-btn">Submit</button>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand text-center" href="index.html">Job Portal</a>
             </div>
-            <div class="row">
-                <div id="map" class="center-block"></div>
-            </div>
-            <div class="row">
-                <div id="textHere"></div>
+            <form class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Job">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </nav>
+    <div class="line col-sm-12">
+        <!-- <hr> -->
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12" id="TitleImage">
+                <img class="img-responsive center-block" src="./assets/images/bootcampGazette.png">
             </div>
         </div>
+        <div class="line col-sm-12">
+            <!-- <hr> -->
+        </div>
+        <div class="row">
+            <div class="col-sm-12 topBarInfo">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h4>Vol MM No 270</h4>
+                    </div>
+                    <div class="col-sm-4">
+                        <h4>Sat, April 1, 2017</h4>
+                    </div>
+                    <div class="col-sm-4">
+                        <h4>Chicago, IL</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="line col-sm-12">
+            <!-- <hr> -->
+        </div>
+        <div class="row">
+            <div class="col-sm-4 backgroundText" id="jobsListHere">
+                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi magna turpis, bibendum at rhoncus vel, tincidunt ut libero.</p>
+                <p> Donec varius dui vel lacus pellentesque, ut sagittis tellus ultricies. Praesent semper egestas velit a pulvinar. Etiam consectetur facilisis magna interdum convallis.</p>
+                <p> Fusce enim est, convallis eget tristique at, volutpat eu sem. Nunc ornare leo sem, quis accumsan lorem imperdiet et. </p>
+                <p>Donec id tortor et eros hendrerit maximus. Duis lacinia sem libero, ut maximus nisi consectetur ac. Vestibulum aliquet auctor urna, non sollicitudin mauris fringilla at.</p>
+                <p>Sed quis odio eget diam sodales volutpat eu sed quam.Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+            </div>
+            <div class="text-center col-sm-4">
+                <div id="formEntry">
+                    <h1>Help Wanted</h1>
+                    <label for="job">Job</label>
+                    <input type="text" name="jobtitle" id="job-input" class="awesomeplete" placeholder=" Mechanical Engineer" />
+                    <br>
+                    <label for="city">City</label>
+                    <input type="text" name="cityName" id="city-input" placeholder=" Chicago">
+                    <br>
+                    <label for="state">State</label>
+                    <select id="state-input">
+                        <option></option>
+                        <option>AL</option>
+                        <option>AK</option>
+                        <option>AZ</option>
+                        <option>AR</option>
+                        <option>CA</option>
+                        <option>CO</option>
+                        <option>CT</option>
+                        <option>DE</option>
+                        <option>DC</option>
+                        <option>FL</option>
+                        <option>GA</option>
+                        <option>HI</option>
+                        <option>ID</option>
+                        <option>IL</option>
+                        <option>IN</option>
+                        <option>IA</option>
+                        <option>KS</option>
+                        <option>KY</option>
+                        <option>LA</option>
+                        <option>ME</option>
+                        <option>MD</option>
+                        <option>MA</option>
+                        <option>MI</option>
+                        <option>MN</option>
+                        <option>MS</option>
+                        <option>MO</option>
+                        <option>MT</option>
+                        <option>NE</option>
+                        <option>NV</option>
+                        <option>NH</option>
+                        <option>NJ</option>
+                        <option>NM</option>
+                        <option>NY</option>
+                        <option>NC</option>
+                        <option>ND</option>
+                        <option>OH</option>
+                        <option>OK</option>
+                        <option>OR</option>
+                        <option>PA</option>
+                        <option>RI</option>
+                        <option>SC</option>
+                        <option>SD</option>
+                        <option>TN</option>
+                        <option>TX</option>
+                        <option>UT</option>
+                        <option>VT</option>
+                        <option>VA</option>
+                        <option>WA</option>
+                        <option>WV</option>
+                        <option>WI</option>
+                        <option>WY</option>
+                    </select>
+                    <!-- <input type="text" name="stateName" id="state-input" placeholder="ex: IL"> -->
+                    <br>
+                    <br>
+                    <button class="btn btn-info" id="submit-btn">Submit</button>
+                </div>
+            </div>
+            <div class="col-sm-4 backgroundText" id="jobStats">
+                <img class="newpaperImage" src="./assets/images/placeholder.png">
+                <p>Vestibulum quis eleifend odio. Ut dapibus nisi ac purus tempor dignissim. Proin vestibulum tincidunt blandit. Sed ornare vehicula velit vitae scelerisque.</p>
+                <p>In sit amet volutpat quam, vel iaculis risus. Praesent luctus nisi et elit egestas sollicitudin.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div>
+                <div id="map" class=""></div>
+            </div>
+        </div>
+        <div class="row">
+            <div id="textHere"></div>
+        </div>
+    </div>
     </div>
     <script type="text/javascript">
     $(document).ready(function() {
+
+        //for information autocomplete for jobs search
+        var input = document.getElementById("job-input");
+        var awesomplete = new Awesomplete(input, {
+            minChars: 1,
+            maxItems: 5,
+            autoFirst: true
+        });
+
+        awesomplete.list = ["Mechanical Engineer", "Chemical Engineer", "Laboratory Technician", "Laboratory Manager", "Developer", "Java Developer", "Java Engineer", "Software Developer", "Sr Software Developer", "Senior Software Developer", "Sr App Developer", "Senior App Developer", "Android Developer", "Java Script/Node Developer", "Application Solution Developer", "Application Solution Engineer", "Python Developer", "Full Stack Developer", "System Engineer", "Senior Security Engineer", "Desktop Support Technician"];
+
         //lat lng storage
         var locationArray = [];
         //job url storage for click event to be fixed later
         var jobUrlArray = [];
+        var jobLocation = "";
+        var jobLocationLatLong = [];
 
         function myMap() {
+            // jobLocationLatLong = jobLocation.geometry.location;
+            // console.log(jobLocationLatLong);
+
             var mapProp = {
                 center: new google.maps.LatLng(39.833333, -98.585522),
                 zoom: 4,
             };
 
             var map = new google.maps.Map(document.getElementById('map'), mapProp);
+            var geocoder = new google.maps.Geocoder();
 
             //looping through array to add markers for each locale
             for (var i = 0; i < locationArray.length; i++) {
@@ -77,37 +209,18 @@
                 });
                 marker.addListener('click', function() {
                     infoWindow.open(map, marker);
-                    // alert("Boop!");
-                    // map.setZoom(8); //random map-centered zoom
-                    // $('#textHere').append("Click!");
                 }); //Listener
             } //for loop
-
-            // Create an array of alphabetical characters used to label the markers.
-            // var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
-            // // Add some markers to the map.
-            // // // Note: The code uses the JavaScript Array.prototype.map() method to
-            // // // create an array of markers based on a given "locations" array.
-            // // // The map() method here has nothing to do with the Google Maps API.
-            // console.log(locationArray);
-            // var markers = locationArray.map(function(location, i) {
-            //   return new google.maps.Marker({
-            //     position: location,
-            //     label: labels[i % labels.length]
-            //   });
-            // });
-
-            // // Add a marker clusterer to manage the markers.
-            // var markerCluster = new MarkerClusterer(map, markers,
-            //     {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
         }
 
         $("#submit-btn").on("click", function(event) {
             //empty array for new search
             locationArray = [];
+            jobTitleArray = [];
 
             $('#textHere').html("");
+
+
 
             event.preventDefault();
 
@@ -116,6 +229,15 @@
             var job = $("#job-input").val().trim();
             var jobCity = $("#city-input").val().trim();
             var jobState = $("#state-input").val().trim();
+            jobLocation = jobCity + ", " + jobState;
+            var jobGeoCenter = "http://maps.googleapis.com/maps/api/geocode/json?address=Bangalore&sensor=false";
+            console.log(jobLocation);
+            console.log(jobGeoCenter);
+            $('#jobsListHere').html("<h3>Top 10 Jobs in the Area</h3><ol><li>Cool Job 1</li><li>Cool Job 2</li><li>Cool Job 3</li><li>Cool Job 4</li><li>Cool Job 5</li><li>Etc</li></ol>");
+            $('#jobStats').html("<h3>Projected Job Growth</h3><img class='autoSize' src='./assets/images/sampleGraph1.png'>");
+            $('#formEntry').html("<h2>Top 50 Hits</h2><br><h4>Job Title</h4><br><h4>City, State</h4>");
+            // jobLocationLatLong.push(jobLocation.geometry.location.lat());
+            console.log(jobLocationLatLong);
 
             // $('#job-input').empty();
 
@@ -131,10 +253,12 @@
                 var results = response.resultItemList;
 
                 console.log(results);
+                var promises = [];
 
                 for (i = 0; i < results.length; i++) {
                     //trying to capture job links. Work in progress
                     jobUrlArray.push(results[i].detailUrl);
+                    jobTitleArray.push(results[i].jobTitle);
 
                     // console.log(jobUrlArray);
                     var city = results[i].location;
@@ -142,21 +266,30 @@
 
                     var queryURLcity = "https://maps.googleapis.com/maps/api/geocode/json?address=" + city + "&key=AIzaSyB_GC-33tMoeP_2GlBptjFH0ZIcER8Ztqg";
 
-                    $.ajax({
+
+                    var promise = $.ajax({
                         url: queryURLcity,
                         method: "GET"
                     }).done(function(responsecity) {
-                        console.log(locationArray);
+                        // console.log(locationArray);
                         // console.log(responsecity);
                         // console.log(responsecity.results[0].geometry.location);
                         locationArray.push(responsecity.results[0].geometry.location);
+
+
                         // console.log(locationArray);
                     }); //done function
-
+                    promises.push(promise);
+                    console.log(promise);
                 } //for loop
-
+                $.when(
+                    promises
+                ).then(myMap);
             }); //done function
-            setTimeout(myMap, 3000);
+
+
+            // setTimeout(myMap, 3000);
+            console.log(jobTitleArray);
 
         }); //submit button
 
