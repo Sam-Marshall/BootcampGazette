@@ -172,39 +172,73 @@
         var jobUrlArray = [];
         var jobLocation = "";
         var jobLocationLatLong = [];
+        var jobTitleArray = [];
+
 
         function myMap() {
-            // jobLocationLatLong = jobLocation.geometry.location;
-            // console.log(jobLocationLatLong);
-            var gm = google.maps
-            var mapProp = {
-                center: new gm.LatLng(39.833333, -98.585522),
-                zoom: 4,
-            };
 
-            var map = new gm.Map(document.getElementById('map'), mapProp);
-            var oms = new OverlappingMarkerSpiderfier(map);
-            var iw = new gm.InfoWindow();
-            var geocoder = new gm.Geocoder();
-            oms.addListener('click', function(marker, event) {
-                iw.setContent(marker.desc);
-                iw.open(map, marker);
-            });
-            oms.addListener('spiderfy', function(markers) {
-                iw.close();
-            });
-            for (var i = 0; i < locationArray.length; i++) {
-                var datum = locationArray[i];
-                var loc = new gm.LatLng(datum.lat, datum.lng);
-                var marker = new gm.Marker({
-                    position: loc,
-                    title: datum.h,
-                    map: map
+            console.log(jobLocation);
+            var cityQueryUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + jobLocation + "&key=AIzaSyB_GC-33tMoeP_2GlBptjFH0ZIcER8Ztqg";
+            $.ajax({
+                url: cityQueryUrl,
+                method: 'GET'
+            }).done(function(response) {
+                console.log(response);
+
+                jobLocationLatLong.push(response.results[0].geometry.location);
+                console.log(jobLocationLatLong);
+
+                var gm = google.maps
+                var mapProp = {
+                    center: new gm.LatLng(jobLocationLatLong[0].lat, jobLocationLatLong[0].lng),
+                    zoom: 8,
+                };
+
+                console.log(jobUrlArray);
+                console.log(jobTitleArray);
+
+
+                var map = new gm.Map(document.getElementById('map'), mapProp);
+                var oms = new OverlappingMarkerSpiderfier(map, {
+                    keepSpiderfier: true
                 });
-                marker.desc = datum.d;
-                oms.addMarker(marker);
-                marker.setMap(map);
-            }
+                var iw = new gm.InfoWindow();
+                var geocoder = new gm.Geocoder();
+
+
+                for (var i = 0; i < locationArray.length; i++) {
+                    var datum = locationArray[i];
+                    var loc = new gm.LatLng(datum.lat, datum.lng);
+                    var marker = new gm.Marker({
+                        position: loc,
+                        title: datum.h,
+                        map: map,
+                        URL: jobUrlArray[i],
+                        jobTitle: jobTitleArray[i]
+
+                    });
+                    marker.desc = datum.d;
+                    oms.addMarker(marker);
+                    marker.setMap(map);
+
+                    oms.addListener('click', function(marker, event) {
+                        var contentString = '<div id="content"><a target="_blank" href="' + marker.URL + '">' + marker.jobTitle + '</a></div>';
+
+                        iw = new gm.InfoWindow({
+                            content: contentString
+                        });
+
+                        iw.open(map, marker);
+                    });
+
+                    oms.addListener('spiderfy', function(markers) {
+                        iw.close();
+                    });
+
+
+                }
+
+            });
         }
 
         $("#submit-btn").on("click", function(event) {
@@ -230,10 +264,9 @@
             $('#jobsListHere').html("<h3>Top 10 Jobs in the Area</h3><ol><li>Cool Job 1</li><li>Cool Job 2</li><li>Cool Job 3</li><li>Cool Job 4</li><li>Cool Job 5</li><li>Etc</li></ol>");
             $('#jobStats').html("<h3>Projected Job Growth</h3><img class='autoSize' src='./assets/images/sampleGraph1.png'>");
             $('#formEntry').html("<h2>Top 50 Hits</h2><br><h4>Job Title</h4><br><h4>City, State</h4>");
-            // jobLocationLatLong.push(jobLocation.geometry.location.lat());
+
             console.log(jobLocationLatLong);
 
-            // $('#job-input').empty();
 
             var queryURL = "http://service.dice.com/api/rest/jobsearch/v1/simple.json?text=" + job + "&city=" + jobCity + ",+" + jobState;
             console.log(queryURL);
@@ -250,13 +283,12 @@
                 var promises = [];
 
                 for (i = 0; i < results.length; i++) {
-                    //trying to capture job links. Work in progress
+
                     jobUrlArray.push(results[i].detailUrl);
                     jobTitleArray.push(results[i].jobTitle);
 
-                    // console.log(jobUrlArray);
                     var city = results[i].location;
-                    // console.log(city);
+
 
                     var queryURLcity = "https://maps.googleapis.com/maps/api/geocode/json?address=" + city + "&key=AIzaSyB_GC-33tMoeP_2GlBptjFH0ZIcER8Ztqg";
 
@@ -265,21 +297,16 @@
                         url: queryURLcity,
                         method: "GET"
                     }).done(function(responsecity) {
-                        // console.log(locationArray);
-                        // console.log(responsecity);
-                        // console.log(responsecity.results[0].geometry.location);
+
                         locationArray.push(responsecity.results[0].geometry.location);
 
 
-                        console.log("Hi");
                     }); //done function
                     promises.push(promise);
                     console.log(promise);
                 } //for loop
                 $.when.apply(this, promises).then(myMap);
             }); //done function
-
-            console.log(jobTitleArray);
 
         }); //submit button
 
