@@ -34,30 +34,19 @@
             </div>
         </div>
     </div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_GC-33tMoeP_2GlBptjFH0ZIcER8Ztqg"></script>
-    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-    <script src="http://jawj.github.io/OverlappingMarkerSpiderfier/bin/oms.min.js"></script>
     <script type="text/javascript">
-    
-    $(document).ready(function() {
-
 
         //lat lng storage
         var locationArray = [];
         //job url storage for click event to be fixed later
         var jobUrlArray = [];
 
-        //initial map
-        myMap();
-
         function myMap() {
-
-            console.log(locationArray);
 
             var gm = google.maps;
             var map = new gm.Map(document.getElementById('map'), {
                 mapTypeId: gm.MapTypeId.SATELLITE,
-                center: new gm.LatLng(50, 0),
+                center: new gm.LatLng(37, 95),
                 zoom: 6
             });
 
@@ -71,8 +60,8 @@
                 iw.close();
             });
 
-            for (var i = 0; i < locationArray.length; i++) {
-                var datum = locationArray[i];
+            for (var i = 0; i < window.locationArray.length; i++) {
+                var datum = window.locationArray[i];
                 var loc = new gm.LatLng(datum.lat, datum.lng);
                 var marker = new gm.Marker({
                     position: loc,
@@ -80,67 +69,74 @@
                     map: map
                 });
                 marker.desc = datum.d;
-                oms.addMarker(marker);
+                oms.addMarker(marker); // <-- here
                 marker.setMap(map);
             }
-        }
+          };
 
 
-        $("#submit-btn").on("click", function(event) {
-            //empty array for new search
-            locationArray = [];
+    $(document).ready(function() {
+    
 
-            $('#textHere').append("");
+    $("#submit-btn").on("click", function(event) {
+        //empty array for new search
+        locationArray = [];
 
-            event.preventDefault();
+        $('#textHere').append("");
 
-            var job = $("#job-input").val().trim();
-            var jobCity = $("#city-input").val().trim();
-            var jobState = $("#state-input").val().trim();
+        event.preventDefault();
 
-            var queryURL = "http://service.dice.com/api/rest/jobsearch/v1/simple.json?text=" + job + "&city=" + jobCity + ",+" + jobState;
-            console.log(queryURL);
-            $.ajax({
-                url: queryURL,
-                method: "GET"
-            }).done(function(response) {
+        var job = $("#job-input").val().trim();
+        var jobCity = $("#city-input").val().trim();
+        var jobState = $("#state-input").val().trim();
 
-                console.log(response);
+        var queryURL = "http://service.dice.com/api/rest/jobsearch/v1/simple.json?text=" + job + "&city=" + jobCity + ",+" + jobState;
+        console.log(queryURL);
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).done(function(response) {
 
-                var results = response.resultItemList;
+            console.log(response);
 
-                console.log(results);
+            var results = response.resultItemList;
 
-                for (i = 0; i < results.length; i++) {
-                    //trying to capture job links. Work in progress
-                    jobUrlArray.push(results[i].detailUrl);
+            console.log(results);
 
-                    // console.log(jobUrlArray);
-                    var city = results[i].location;
-                    // console.log(city);
+            for (i = 0; i < results.length; i++) {
+                //trying to capture job links. Work in progress
+                jobUrlArray.push(results[i].detailUrl);
 
-                    var queryURLcity = "https://maps.googleapis.com/maps/api/geocode/json?address=" + city + "&key=AIzaSyB_GC-33tMoeP_2GlBptjFH0ZIcER8Ztqg";
+                // console.log(jobUrlArray);
+                var city = results[i].location;
+                // console.log(city);
 
-                    $.ajax({
-                        url: queryURLcity,
-                        method: "GET"
-                    }).done(function(responsecity) {
-                        // console.log(responsecity);
-                        // console.log(responsecity.results[0].geometry.location);
-                        locationArray.push(responsecity.results[0].geometry.location);
+                var queryURLcity = "https://maps.googleapis.com/maps/api/geocode/json?address=" + city + "&key=AIzaSyB_GC-33tMoeP_2GlBptjFH0ZIcER8Ztqg";
 
-                    }); //done function
+                $.ajax({
+                    url: queryURLcity,
+                    method: "GET"
+                }).done(function(responsecity) {
+                    // console.log(responsecity);
+                    // console.log(responsecity.results[0].geometry.location);
+                    locationArray.push(responsecity.results[0].geometry.location);
 
-                } //for loop
+                }); //done function
 
-            }); //done function
-            setTimeout(myMap, 4000);
+            } //for loop
 
-        }); //submit button
+        }); //done function
+        setTimeout(myMap, 3000);
+
+    }); //submit button
 
 
     });
     </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_GC-33tMoeP_2GlBptjFH0ZIcER8Ztqg&callback=myMap"></script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+    <script src="http://jawj.github.io/OverlappingMarkerSpiderfier/bin/oms.min.js"></script>
+
 </body>
 
 </html>
