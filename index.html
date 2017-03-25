@@ -194,14 +194,14 @@
                 iw.close();
             });
             for (var i = 0; i < locationArray.length; i++) {
-                var datum = l ocationArray[i];
-                var loc = n ew gm.LatLng(datum.lat, datum.lng);
-                var marker = n ew gm.Marker({
+                var datum = locationArray[i];
+                var loc = new gm.LatLng(datum.lat, datum.lng);
+                var marker = new gm.Marker({
                     position: loc,
                     title: datum.h,
                     map: map
                 });
-                marker.desc = d atum.d;
+                marker.desc = datum.d;
                 oms.addMarker(marker);
                 marker.setMap(map);
             }
