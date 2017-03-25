@@ -282,9 +282,7 @@
                     promises.push(promise);
                     console.log(promise);
                 } //for loop
-                $.when(
-                    promises
-                ).then(myMap);
+                $.when.apply(this, promises).then(myMap);
             }); //done function
 
 
