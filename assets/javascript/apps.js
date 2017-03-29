@@ -22,35 +22,41 @@ $(document).ready(function() {
     var job = "";
     var jobPostDate = [];
 
+    //get location of the user  
+    function geolocator() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
 
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
+                var queryURLgeo = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + pos.lat + "," + pos.lng + "&key=AIzaSyB_GC-33tMoeP_2GlBptjFH0ZIcER8Ztqg"
+                $.ajax({
+                    url: queryURLgeo,
+                    method: "GET"
+                }).done(function(response) {
 
-            var queryURLgeo = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + pos.lat + "," + pos.lng + "&key=AIzaSyB_GC-33tMoeP_2GlBptjFH0ZIcER8Ztqg"
-            $.ajax({
-                url: queryURLgeo,
-                method: "GET"
-            }).done(function(response) {
-
-                var userLocation = response.results[0].formatted_address;
-                console.log(userLocation);
-                $("#userlocation").text(userLocation);
+                    var userLocation = response.results[0].formatted_address;
+                    console.log(userLocation);
+                    $("#userlocation").text(userLocation);
+                });
             });
-        });
+        }
     }
 
+    geolocator();
+
+    //get current time
     function printTime() {
-         var currentTime = moment().format('MMMM Do YYYY, h:mm:ss a');
+        var currentTime = moment().format('MMMM Do YYYY, h:mm:ss a');
         $("#currentTime").text(currentTime);
     }
 
-    setInterval(printTime,1000);
+    setInterval(printTime, 1000);
 
-    function getTodayQuote(){
+    //get quote of the day
+    function getTodayQuote() {
         var getQuoteURL = "http://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=localjsonp";
         $.ajax({
             url: getQuoteURL,
@@ -58,12 +64,12 @@ $(document).ready(function() {
             jsonpCallback: 'localjsonp'
         }).done(function(response) {
             console.log(response);
-            $("#quote").text('"'+response.quoteText+'"');
-            $("#author").text('-'+response.quoteAuthor);
-    });
-}
+            $("#quote").text('"' + response.quoteText + '"');
+            $("#author").text('-' + response.quoteAuthor);
+        });
+    }
 
-getTodayQuote();
+    getTodayQuote();
 
 
     function companyReviewGlassdoor(company) {
