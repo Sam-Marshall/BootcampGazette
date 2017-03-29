@@ -219,10 +219,10 @@ getNews();
             return;
         }
 
-        $("#jobsListHere").css('display', 'none');
+        $(".article-1").css('display', 'none');
         $(".payScale").css('display', 'block');
-        // $("#formEntry").css('display', 'none');
-        $("#jobStats").css('display', 'none');
+        $(".article-2").css('display', 'none');
+
         //empty array for new search
         locationArray = [];
         jobTitleArray = [];
