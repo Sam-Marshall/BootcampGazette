@@ -43,13 +43,27 @@ $(document).ready(function() {
         });
     }
 
-
     function printTime() {
          var currentTime = moment().format('MMMM Do YYYY, h:mm:ss a');
         $("#currentTime").text(currentTime);
     }
 
     setInterval(printTime,1000);
+
+    function getTodayQuote(){
+        var getQuoteURL = "http://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=localjsonp";
+        $.ajax({
+            url: getQuoteURL,
+            dataType: 'jsonp',
+            jsonpCallback: 'localjsonp'
+        }).done(function(response) {
+            console.log(response);
+            $("#quote").text('"'+response.quoteText+'"');
+            $("#author").text('-'+response.quoteAuthor);
+    });
+}
+
+getTodayQuote();
 
 
     function companyReviewGlassdoor(company) {
