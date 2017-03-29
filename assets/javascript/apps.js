@@ -46,6 +46,34 @@ $(document).ready(function() {
 
     geolocator();
 
+//get news for front page
+    function getNews() {
+        var getNewsURL = "https://newsapi.org/v1/articles?source=techcrunch&apiKey=aabe6370d0da41d19293747b576aab51";
+        $.ajax({
+            url: getNewsURL,
+            method: 'GET'
+        }).done(function(response) {
+            console.log(response);
+             var article1 = response.articles[0];
+             var article2 = response.articles[1];
+       
+             $(".article-1 .title").text(article1.title);
+             $(".article-1 .description").text(article1.description);
+             $(".article-1 .image").attr("src",article1.urlToImage);
+             $(".article-1 .link").attr("href",article1.url);
+             $(".article-1 .date").text(article1.publishedAt);
+
+             $(".article-2 .title").text(article2.title);
+             $(".article-2 .description").text(article2.description);
+             $(".article-2 .image").attr("src",article2.urlToImage);
+             $(".article-2 .link").attr("href",article2.url);
+             $(".article-2 .date").text(article2.publishedAt);
+
+        });
+    }
+
+getNews();
+
     //get current time
     function printTime() {
         var currentTime = moment().format('MMMM Do YYYY, h:mm:ss a');
