@@ -78,8 +78,10 @@ body {
 .payScale {
     width: 30%;
     border: solid 1px #a5d34c;
-    border-width: 5px 1px 5px 1px;
+    border-width: 3px 3px 3px 3px;
     font-family: 'Open Sans', sans-serif;
+    margin: 10px;
+    padding: 15px;
     font-size: 11px;
     color: #333333;
     display: none;

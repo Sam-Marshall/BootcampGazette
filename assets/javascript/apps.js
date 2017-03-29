@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
     //for information autocomplete for jobs search
     var input = document.getElementById("job-input");
     var awesomplete = new Awesomplete(input, {
@@ -214,7 +213,6 @@ $(document).ready(function() {
         console.log(jobGeoCenter);
         console.log(jobLocationLatLong);
 
-
         var queryURL = "http://service.dice.com/api/rest/jobsearch/v1/simple.json?text=" + job + "&city=" + jobCity + ",+" + jobState;
         console.log(queryURL);
         $.ajax({
@@ -257,6 +255,8 @@ $(document).ready(function() {
             console.log(jobCompanyArray);
             $.when.apply(this, promises).then(myMap);
         }); //done function
+
+
 
     }); //submit button
 
