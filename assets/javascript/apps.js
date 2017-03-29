@@ -55,7 +55,7 @@ $(document).ready(function() {
             var gm = google.maps
             var mapProp = {
                 center: new gm.LatLng(jobLocationLatLong[0].lat, jobLocationLatLong[0].lng),
-                zoom: 8,
+                zoom: 9,
             };
 
             console.log(jobUrlArray);
@@ -100,10 +100,20 @@ $(document).ready(function() {
                 infoWindow.close();
                 infoWindow.setContent(contentString);
                 infoWindow.open(map, marker);
+
             });
-            spiderfy.addListener('mouseover', function(marker, event) {
-                var markerCurrent = marker.id;
-                alert("Hello: " + markerCurrent);
+            //Mouseover only works for final item added to array. Why?
+            gm.event.addListener(marker, "mouseover", function() {
+
+                var markerCurrent = "Test: " + this.id;
+                infoWindow.close();
+                infoWindow.setContent(markerCurrent);
+                infoWindow.open(map, marker);
+
+            });
+            gm.event.addListener(marker, "mouseout", function() {
+                var markerCurrent = " ";
+                infoWindow.close();
             });
 
         });
