@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdn.rawgit.com/LeaVerou/awesomplete/gh-pages/awesomplete.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
     <script src="https://cdn.rawgit.com/LeaVerou/awesomplete/gh-pages/awesomplete.min.js"></script>
+    <!--     <script src="https://cdn-payscale.com/js/psextension-min.js"></script>
+    <script src="https://www.payscale.com/syndication/start_large_v3r.aspx?instance=1&js=1&v=1&af=&job=&city=&state=&country=United States&textcolor=333333&backgroundcolor=a5d34c"></script> -->
 </head>
 
 <body>
@@ -148,6 +150,14 @@
         <div class="row">
             <div id="textHere"></div>
         </div>
+        <!-- Ignore this for now. Stacy's work in progress below -->
+
+<!--         <script src="https://cdn-payscale.com/js/psextension-min.js"></script>
+        <div style="width: 300px; border: solid 1px #a5d34c; border-width: 5px 1px 5px 1px; font-family:'Open Sans', sans-serif; font-size:11px; color: #333333;">
+            <script src="https://www.payscale.com/syndication/start_large_v3r.aspx?instance=1&js=1&v=1&af=&job=&city=&state=&country=United States&textcolor=333333&backgroundcolor=a5d34c"></script>
+            <div style="margin-left: 5px; color:#333333; font-family:'Open Sans', sans-serif; font-size:11px; line-height:11px; height:20px; padding-top:2px; text-align:center;">Accurate, real-time <a style="color: #0066cc" target="_blank" rel="nofollow" href="http://www.payscale.com/research/US/Country=United_States/Salary">salaries</a> for thousands of <a style="color: #0066cc" target="_blank" rel="nofollow" href="http://www.payscale.com/career-news">careers</a>.</div>
+        </div> -->
+        
     </div>
     </div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_GC-33tMoeP_2GlBptjFH0ZIcER8Ztqg"></script>
@@ -173,11 +183,30 @@
         var jobLocation = "";
         var jobLocationLatLong = [];
         var jobTitleArray = [];
+        var jobCompanyArray = [];
+        var job = "";
+
+
+        function companyReviewGlassdoor(company) {
+            var tpID = "134832";
+            var tkID = "gwCCc0SqSnc";
+            jobLocation = jobLocation.split(' ').join('+');
+            var companyUrl = "http://api.glassdoor.com/api/api.htm?v=1&format=json&t.p=" + tpID + "&t.k=" + tkID + "&action=employers&q=" + company + "&l=" + jobLocation;
+            console.log(companyUrl);
+            $.ajax({
+                url: companyUrl,
+                method: 'GET',
+                dataType: 'jsonp'
+            }).done(function(response) {
+                console.log(response.response.employers[0]);
+            });
+        }
 
 
         function myMap() {
 
             console.log(jobLocation);
+            console.log(jobCompanyArray);
             var cityQueryUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + jobLocation + "&key=AIzaSyB_GC-33tMoeP_2GlBptjFH0ZIcER8Ztqg";
             $.ajax({
                 url: cityQueryUrl,
@@ -199,44 +228,49 @@
 
 
                 var map = new gm.Map(document.getElementById('map'), mapProp);
-                var oms = new OverlappingMarkerSpiderfier(map, {
+                var spiderfy = new OverlappingMarkerSpiderfier(map, {
                     keepSpiderfier: true
                 });
-                var iw = new gm.InfoWindow();
-                var geocoder = new gm.Geocoder();
-
+                var infoWindow = new gm.InfoWindow();
+                console.log(locationArray);
 
                 for (var i = 0; i < locationArray.length; i++) {
                     var datum = locationArray[i];
                     var loc = new gm.LatLng(datum.lat, datum.lng);
                     var marker = new gm.Marker({
                         position: loc,
-                        title: datum.h,
+                        id: i,
                         map: map,
                         URL: jobUrlArray[i],
-                        jobTitle: jobTitleArray[i]
+                        jobTitle: jobTitleArray[i],
+                        company: jobCompanyArray[i]
 
                     });
-                    marker.desc = datum.d;
-                    oms.addMarker(marker);
+
+                    spiderfy.addMarker(marker);
                     marker.setMap(map);
 
-                    oms.addListener('click', function(marker, event) {
-                        var contentString = '<div id="content"><a target="_blank" href="' + marker.URL + '">' + marker.jobTitle + '</a></div>';
-
-                        iw = new gm.InfoWindow({
-                            content: contentString
-                        });
-
-                        iw.open(map, marker);
-                    });
-
-                    oms.addListener('spiderfy', function(markers) {
-                        iw.close();
-                    });
-
-
+                    // marker.hover(
+                    //   function() {
+                    //     var contentString = '<div id="content"><p>'+ id +'</p><a target="_blank" href="' + marker.URL + '">' + marker.jobTitle + '</a></div>';
+                    //     $('#textHere').html(marker.id);
+                    //     infoWindow.close();
+                    //     infoWindow.setContent(contentString);
+                    //     infoWindow.open(map, marker);
+                    // });
                 }
+                spiderfy.addListener('click', function(marker, event) {
+                    var contentString = '<div id="content"><a target="_blank" href="' + marker.URL + '">' + marker.jobTitle + '</a></div>';
+                    // $('#textHere').append(marker.id + marker.company);
+                    var activeMarkerCompany = marker.company.split(' ').join('+');
+
+                    console.log(activeMarkerCompany);
+                    companyReviewGlassdoor(activeMarkerCompany);
+                    infoWindow.close();
+                    infoWindow.setContent(contentString);
+                    infoWindow.open(map, marker);
+                });
+
 
             });
         }
@@ -254,7 +288,7 @@
 
             // marker.setMap(null);
 
-            var job = $("#job-input").val().trim();
+            job = $("#job-input").val().trim();
             var jobCity = $("#city-input").val().trim();
             var jobState = $("#state-input").val().trim();
             jobLocation = jobCity + ", " + jobState;
@@ -286,6 +320,7 @@
 
                     jobUrlArray.push(results[i].detailUrl);
                     jobTitleArray.push(results[i].jobTitle);
+                    jobCompanyArray.push(results[i].company);
 
                     var city = results[i].location;
 
@@ -305,6 +340,7 @@
                     promises.push(promise);
                     console.log(promise);
                 } //for loop
+                console.log(jobCompanyArray);
                 $.when.apply(this, promises).then(myMap);
             }); //done function
 
