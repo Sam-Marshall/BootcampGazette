@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+
     //for information autocomplete for jobs search
     var input = document.getElementById("job-input");
     var awesomplete = new Awesomplete(input, {
@@ -20,6 +21,35 @@ $(document).ready(function() {
     var jobCompanyArray = [];
     var job = "";
     var jobPostDate = [];
+
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            var queryURLgeo = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + pos.lat + "," + pos.lng + "&key=AIzaSyB_GC-33tMoeP_2GlBptjFH0ZIcER8Ztqg"
+            $.ajax({
+                url: queryURLgeo,
+                method: "GET"
+            }).done(function(response) {
+
+                var userLocation = response.results[0].formatted_address;
+                console.log(userLocation);
+                $("#userlocation").text(userLocation);
+            });
+        });
+    }
+
+
+    function printTime() {
+         var currentTime = moment().format('MMMM Do YYYY, h:mm:ss a');
+        $("#currentTime").text(currentTime);
+    }
+
+    setInterval(printTime,1000);
 
 
     function companyReviewGlassdoor(company) {
@@ -141,7 +171,7 @@ $(document).ready(function() {
         if (!isFormValid) {
             return;
         }
-        
+
         $("#jobsListHere").css('display', 'none');
         $(".payScale").css('display', 'block');
         // $("#formEntry").css('display', 'none');
