@@ -91,7 +91,7 @@ $(document).ready(function() {
         var $payScaleForm = $("#payScaleForm");
         var span = document.createElement('span');
         span.innerHTML = htmlPayScaleForm;
-        $payScaleForm.append(span);
+        $payScaleForm.html(span);
     }
 
     function geolocator() {
