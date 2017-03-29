@@ -125,11 +125,11 @@ var PayScaleExtension = { ServiceURL: "//www.payscale.com", bubbleWidth: "400", 
             var d = h - 20;
             l.style.display = "none";
             c.style.display = "block";
-            c.innerHTML = '<iframe id="PayscaleSalaryCalculatorInnerFrame" frameborder="0" scrolling="no" style="padding: 0; margin: 0;" width=' + h + " height=" + p + ' src="' + 'http://' + PayScaleExtension.ServiceURL + '/syndication/loading.htm"' + "></iframe>";
+            c.innerHTML = '<iframe id="PayscaleSalaryCalculatorInnerFrame" frameborder="0" scrolling="no" style="padding: 0; margin: 0;" width=' + h + " height=" + p + ' src="' + PayScaleExtension.ServiceURL + '/syndication/loading.htm"' + "></iframe>";
             var v = document.getElementById(f);
             if (null != v) { v.style.display = "inline" }
             var m = document.getElementById("PayscaleSalaryCalculatorInnerFrame");
-            var g = 'http://' + PayScaleExtension.ServiceURL + "/syndication/total_pay_chart.aspx?job=" + PayScaleExtension.processedJob + "&title=1&city=" + PayScaleExtension.processedCity + "&state=" + PayScaleExtension.processedState + "&country=" + PayScaleExtension.processedCountry + "&af=" + PayScaleExtension.affiliateId + "&src=" + PayScaleExtension.srcId + "&t=" + (new Date).getTime() + "&cmPageId=" + PayScaleExtension.cmPageId + "&width=" + d + "px&shownext=true";
+            var g = PayScaleExtension.ServiceURL + "/syndication/total_pay_chart.aspx?job=" + PayScaleExtension.processedJob + "&title=1&city=" + PayScaleExtension.processedCity + "&state=" + PayScaleExtension.processedState + "&country=" + PayScaleExtension.processedCountry + "&af=" + PayScaleExtension.affiliateId + "&src=" + PayScaleExtension.srcId + "&t=" + (new Date).getTime() + "&cmPageId=" + PayScaleExtension.cmPageId + "&width=" + d + "px&shownext=true";
             setTimeout(function() { m.src = g }, 300) } }, resetSalaryCalculatorV3R: function(e, t, n) {
         var r = document.getElementById(n);
         if (null != r) { r.style.display = "none" }
