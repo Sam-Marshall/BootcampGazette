@@ -174,6 +174,7 @@ $(document).ready(function() {
                 jobUrlArray.push(results[i].detailUrl);
                 jobTitleArray.push(results[i].jobTitle);
                 jobCompanyArray.push(results[i].company);
+                jobPostDate.push(results[i].date);
 
                 var city = results[i].location;
 
