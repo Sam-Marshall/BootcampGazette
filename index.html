@@ -69,72 +69,83 @@
             <div class="text-center col-sm-4">
                 <div id="formEntry">
                     <h1>Help Wanted</h1>
-                    <label for="job">Job</label>
-                    <input type="text" name="jobtitle" id="job-input" class="awesomeplete" placeholder=" Mechanical Engineer" />
-                    <br>
-                    <label for="city">City</label>
-                    <input type="text" name="cityName" id="city-input" placeholder=" Chicago">
-                    <br>
-                    <label for="state">State</label>
-                    <select id="state-input">
-                        <option></option>
-                        <option>AL</option>
-                        <option>AK</option>
-                        <option>AZ</option>
-                        <option>AR</option>
-                        <option>CA</option>
-                        <option>CO</option>
-                        <option>CT</option>
-                        <option>DE</option>
-                        <option>DC</option>
-                        <option>FL</option>
-                        <option>GA</option>
-                        <option>HI</option>
-                        <option>ID</option>
-                        <option>IL</option>
-                        <option>IN</option>
-                        <option>IA</option>
-                        <option>KS</option>
-                        <option>KY</option>
-                        <option>LA</option>
-                        <option>ME</option>
-                        <option>MD</option>
-                        <option>MA</option>
-                        <option>MI</option>
-                        <option>MN</option>
-                        <option>MS</option>
-                        <option>MO</option>
-                        <option>MT</option>
-                        <option>NE</option>
-                        <option>NV</option>
-                        <option>NH</option>
-                        <option>NJ</option>
-                        <option>NM</option>
-                        <option>NY</option>
-                        <option>NC</option>
-                        <option>ND</option>
-                        <option>OH</option>
-                        <option>OK</option>
-                        <option>OR</option>
-                        <option>PA</option>
-                        <option>RI</option>
-                        <option>SC</option>
-                        <option>SD</option>
-                        <option>TN</option>
-                        <option>TX</option>
-                        <option>UT</option>
-                        <option>VT</option>
-                        <option>VA</option>
-                        <option>WA</option>
-                        <option>WV</option>
-                        <option>WI</option>
-                        <option>WY</option>
-                    </select>
-                    <!-- <input type="text" name="stateName" id="state-input" placeholder="ex: IL"> -->
-                    <br>
-                    <br>
-                    <button class="btn btn-info" id="submit-btn">Submit</button>
-                </div>
+                    <form class='formSubmission form-horizontal'>
+                        <div class="form-group">
+                            <label class="form-control-label col-sm-2" for="job-input">Job Title</label>
+                            <!-- add awesplete -->
+                                <div class="col-sm-8">
+                                    <input type="text" class="awesomplete form-control form-control-danger col-sm-2" name="jobtitle" id="job-input" placeholder="Mechanical Engineer">
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label col-sm-2" for="city-input">City</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control form-control-danger col-sm-2" name="cityName" id="city-input" placeholder="Chicago">
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label col-sm-2" for="state-input">State</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="state-input">
+                                        <option></option>
+                                        <option>AL</option>
+                                        <option>AK</option>
+                                        <option>AZ</option>
+                                        <option>AR</option>
+                                        <option>CA</option>
+                                        <option>CO</option>
+                                        <option>CT</option>
+                                        <option>DE</option>
+                                        <option>DC</option>
+                                        <option>FL</option>
+                                        <option>GA</option>
+                                        <option>HI</option>
+                                        <option>ID</option>
+                                        <option>IL</option>
+                                        <option>IN</option>
+                                        <option>IA</option>
+                                        <option>KS</option>
+                                        <option>KY</option>
+                                        <option>LA</option>
+                                        <option>ME</option>
+                                        <option>MD</option>
+                                        <option>MA</option>
+                                        <option>MI</option>
+                                        <option>MN</option>
+                                        <option>MS</option>
+                                        <option>MO</option>
+                                        <option>MT</option>
+                                        <option>NE</option>
+                                        <option>NV</option>
+                                        <option>NH</option>
+                                        <option>NJ</option>
+                                        <option>NM</option>
+                                        <option>NY</option>
+                                        <option>NC</option>
+                                        <option>ND</option>
+                                        <option>OH</option>
+                                        <option>OK</option>
+                                        <option>OR</option>
+                                        <option>PA</option>
+                                        <option>RI</option>
+                                        <option>SC</option>
+                                        <option>SD</option>
+                                        <option>TN</option>
+                                        <option>TX</option>
+                                        <option>UT</option>
+                                        <option>VT</option>
+                                        <option>VA</option>
+                                        <option>WA</option>
+                                        <option>WV</option>
+                                        <option>WI</option>
+                                        <option>WY</option>
+                                    </select> 
+                                </div> 
+                        </div>
+                        <button class="btn btn-info" id="submit-btn">Submit</button>
+                
+                </form>
+            </div>
             </div>
             <div class="col-sm-4 backgroundText" id="jobStats">
                 <img class="newpaperImage" src="./assets/images/placeholder.png">
@@ -159,196 +170,11 @@
         </div> -->
         
     </div>
-    </div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_GC-33tMoeP_2GlBptjFH0ZIcER8Ztqg"></script>
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
     <script src="http://jawj.github.io/OverlappingMarkerSpiderfier/bin/oms.min.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-
-        //for information autocomplete for jobs search
-        var input = document.getElementById("job-input");
-        var awesomplete = new Awesomplete(input, {
-            minChars: 1,
-            maxItems: 5,
-            autoFirst: true
-        });
-
-        awesomplete.list = ["Mechanical Engineer", "Chemical Engineer", "Laboratory Technician", "Laboratory Manager", "Developer", "Java Developer", "Java Engineer", "Software Developer", "Sr Software Developer", "Senior Software Developer", "Sr App Developer", "Senior App Developer", "Android Developer", "Java Script/Node Developer", "Application Solution Developer", "Application Solution Engineer", "Python Developer", "Full Stack Developer", "System Engineer", "Senior Security Engineer", "Desktop Support Technician"];
-
-        //lat lng storage
-        var locationArray = [];
-        //job url storage for click event to be fixed later
-        var jobUrlArray = [];
-        var jobLocation = "";
-        var jobLocationLatLong = [];
-        var jobTitleArray = [];
-        var jobCompanyArray = [];
-        var job = "";
-
-
-        function companyReviewGlassdoor(company) {
-            var tpID = "134832";
-            var tkID = "gwCCc0SqSnc";
-            jobLocation = jobLocation.split(' ').join('+');
-            var companyUrl = "http://api.glassdoor.com/api/api.htm?v=1&format=json&t.p=" + tpID + "&t.k=" + tkID + "&action=employers&q=" + company + "&l=" + jobLocation;
-            console.log(companyUrl);
-            $.ajax({
-                url: companyUrl,
-                method: 'GET',
-                dataType: 'jsonp'
-            }).done(function(response) {
-                console.log(response.response.employers[0]);
-            });
-        }
-
-
-        function myMap() {
-
-            console.log(jobLocation);
-            console.log(jobCompanyArray);
-            var cityQueryUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + jobLocation + "&key=AIzaSyB_GC-33tMoeP_2GlBptjFH0ZIcER8Ztqg";
-            $.ajax({
-                url: cityQueryUrl,
-                method: 'GET'
-            }).done(function(response) {
-                console.log(response);
-
-                jobLocationLatLong.push(response.results[0].geometry.location);
-                console.log(jobLocationLatLong);
-
-                var gm = google.maps
-                var mapProp = {
-                    center: new gm.LatLng(jobLocationLatLong[0].lat, jobLocationLatLong[0].lng),
-                    zoom: 8,
-                };
-
-                console.log(jobUrlArray);
-                console.log(jobTitleArray);
-
-
-                var map = new gm.Map(document.getElementById('map'), mapProp);
-                var spiderfy = new OverlappingMarkerSpiderfier(map, {
-                    keepSpiderfier: true
-                });
-                var infoWindow = new gm.InfoWindow();
-                console.log(locationArray);
-
-                for (var i = 0; i < locationArray.length; i++) {
-                    var datum = locationArray[i];
-                    var loc = new gm.LatLng(datum.lat, datum.lng);
-                    var marker = new gm.Marker({
-                        position: loc,
-                        id: i,
-                        map: map,
-                        URL: jobUrlArray[i],
-                        jobTitle: jobTitleArray[i],
-                        company: jobCompanyArray[i]
-
-                    });
-
-                    spiderfy.addMarker(marker);
-                    marker.setMap(map);
-
-                    // marker.hover(
-                    //   function() {
-                    //     var contentString = '<div id="content"><p>'+ id +'</p><a target="_blank" href="' + marker.URL + '">' + marker.jobTitle + '</a></div>';
-                    //     $('#textHere').html(marker.id);
-                    //     infoWindow.close();
-                    //     infoWindow.setContent(contentString);
-                    //     infoWindow.open(map, marker);
-                    // });
-                }
-                spiderfy.addListener('click', function(marker, event) {
-                    var contentString = '<div id="content"><a target="_blank" href="' + marker.URL + '">' + marker.jobTitle + '</a></div>';
-                    // $('#textHere').append(marker.id + marker.company);
-                    var activeMarkerCompany = marker.company.split(' ').join('+');
-
-                    console.log(activeMarkerCompany);
-                    companyReviewGlassdoor(activeMarkerCompany);
-                    infoWindow.close();
-                    infoWindow.setContent(contentString);
-                    infoWindow.open(map, marker);
-                });
-
-
-            });
-        }
-
-        $("#submit-btn").on("click", function(event) {
-            //empty array for new search
-            locationArray = [];
-            jobTitleArray = [];
-
-            $('#textHere').html("");
-
-
-
-            event.preventDefault();
-
-            // marker.setMap(null);
-
-            job = $("#job-input").val().trim();
-            var jobCity = $("#city-input").val().trim();
-            var jobState = $("#state-input").val().trim();
-            jobLocation = jobCity + ", " + jobState;
-            var jobGeoCenter = "http://maps.googleapis.com/maps/api/geocode/json?address=Bangalore&sensor=false";
-            console.log(jobLocation);
-            console.log(jobGeoCenter);
-            $('#jobsListHere').html("<h3>Top 10 Jobs in the Area</h3><ol><li>Cool Job 1</li><li>Cool Job 2</li><li>Cool Job 3</li><li>Cool Job 4</li><li>Cool Job 5</li><li>Etc</li></ol>");
-            $('#jobStats').html("<h3>Projected Job Growth</h3><img class='autoSize' src='./assets/images/sampleGraph1.png'>");
-            $('#formEntry').html("<h2>Top 50 Hits</h2><br><h4>Job Title</h4><br><h4>City, State</h4>");
-
-            console.log(jobLocationLatLong);
-
-
-            var queryURL = "http://service.dice.com/api/rest/jobsearch/v1/simple.json?text=" + job + "&city=" + jobCity + ",+" + jobState;
-            console.log(queryURL);
-            $.ajax({
-                url: queryURL,
-                method: "GET"
-            }).done(function(response) {
-
-                console.log(response);
-
-                var results = response.resultItemList;
-
-                console.log(results);
-                var promises = [];
-
-                for (i = 0; i < results.length; i++) {
-
-                    jobUrlArray.push(results[i].detailUrl);
-                    jobTitleArray.push(results[i].jobTitle);
-                    jobCompanyArray.push(results[i].company);
-
-                    var city = results[i].location;
-
-
-                    var queryURLcity = "https://maps.googleapis.com/maps/api/geocode/json?address=" + city + "&key=AIzaSyB_GC-33tMoeP_2GlBptjFH0ZIcER8Ztqg";
-
-
-                    var promise = $.ajax({
-                        url: queryURLcity,
-                        method: "GET"
-                    }).done(function(responsecity) {
-
-                        locationArray.push(responsecity.results[0].geometry.location);
-
-
-                    }); //done function
-                    promises.push(promise);
-                    console.log(promise);
-                } //for loop
-                console.log(jobCompanyArray);
-                $.when.apply(this, promises).then(myMap);
-            }); //done function
-
-        }); //submit button
-
-
-    });
-    </script>
+    <script src="assets/javascript/apps.js" type="text/javascript"></script>
+    
 </body>
 
 </html>
