@@ -141,7 +141,11 @@ $(document).ready(function() {
         if (!isFormValid) {
             return;
         }
-
+        
+        $("#jobsListHere").css('display', 'none');
+        $(".payScale").css('display', 'block');
+        // $("#formEntry").css('display', 'none');
+        $("#jobStats").css('display', 'none');
         //empty array for new search
         locationArray = [];
         jobTitleArray = [];
@@ -158,10 +162,6 @@ $(document).ready(function() {
         var jobGeoCenter = "http://maps.googleapis.com/maps/api/geocode/json?address=Bangalore&sensor=false";
         console.log(jobLocation);
         console.log(jobGeoCenter);
-        $('#jobsListHere').html("<h3>Top 10 Jobs in the Area</h3><ol><li>Cool Job 1</li><li>Cool Job 2</li><li>Cool Job 3</li><li>Cool Job 4</li><li>Cool Job 5</li><li>Etc</li></ol>");
-        $('#jobStats').html("<h3>Projected Job Growth</h3><img class='autoSize' src='./assets/images/sampleGraph1.png'>");
-        $('#formEntry').html("<h2>Top 50 Hits</h2><br><h4>Job Title</h4><br><h4>City, State</h4>");
-
         console.log(jobLocationLatLong);
 
 

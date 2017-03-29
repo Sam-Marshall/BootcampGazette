@@ -1,64 +1,101 @@
 /**{
 	box-sizing: border-box;
 }*/
+
 @font-face {
     font-family: OldNewspaperTypes;
     src: local('OldNewspaperTypes'), url('../images/OldNewspaperTypes.ttf');
 }
-#TitleImage{
-	width: 100%;
-	height: auto;
-	margin: 0 auto;
+
+#TitleImage {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
 }
-.line{
-	width: 100%;
-	border-color: #808080;
-	background-color: #808080;
-	height: 2px;
+
+.line {
+    width: 100%;
+    border-color: #808080;
+    background-color: #808080;
+    height: 2px;
 }
-.topBarInfo{
-	width: 100%;
-	color: #808080;
-	margin-bottom: 0px;
-	margin-top: 5px;
-	margin-left: 10px;
-	margin-right: 10px;
-	text-align: center;		
+
+.topBarInfo {
+    width: 100%;
+    color: #808080;
+    margin-bottom: 0px;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
 }
-.backgroundText{
-	margin-top: 5px;
+
+.backgroundText {
+    margin-top: 5px;
 }
-.autoSize{
-	width: 100%;
-	height: auto;
+
+.autoSize {
+    width: 100%;
+    height: auto;
 }
+
 #map {
     height: 350px;
     width: 65%;
     text-align: center;
     margin: 0 auto;
     margin-top: 10px;
+    /*float: left;*/
 }
-#formEntry{
-	width: 100%;
-	margin-top: 15px;
-	text-align: center;
-/*	border-style: solid;
+
+#formEntry {
+    width: 100%;
+    margin-top: 15px;
+    text-align: center;
+    /*	border-style: solid;
 	border-color: #808080;*/
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
-.newpaperImage{
-	width: 100%;
-	height: auto;
-	text-align: center;
-	margin: 5px;
+
+.newpaperImage {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    margin: 5px;
 }
-p{
-	text-indent: 25px;
-	color: #808080;	
+
+p {
+    text-indent: 25px;
+    color: #808080;
 }
+
 body {
     color: #000;
     background-image: url('../images/bedge_grunge.png');
     font-family: OldNewspaperTypes !important;
+}
+
+.payScale {
+    width: 30%;
+    border: solid 1px #a5d34c;
+    border-width: 5px 1px 5px 1px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11px;
+    color: #333333;
+    display: none;
+}
+
+.payScaleBelowForm {
+    margin-left: 5px;
+    color: #333333;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11px;
+    line-height: 11px;
+    height: 20px;
+    padding-top: 2px;
+    text-align:center;
+}
+
+.payScaleLink{
+	color: #0066cc;
 }

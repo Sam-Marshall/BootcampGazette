@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="https://cdn.rawgit.com/LeaVerou/awesomplete/gh-pages/awesomplete.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
     <script src="https://cdn.rawgit.com/LeaVerou/awesomplete/gh-pages/awesomplete.min.js"></script>
-    <!--     <script src="https://cdn-payscale.com/js/psextension-min.js"></script>
-    <script src="https://www.payscale.com/syndication/start_large_v3r.aspx?instance=1&js=1&v=1&af=&job=&city=&state=&country=United States&textcolor=333333&backgroundcolor=a5d34c"></script> -->
+    <script src="assets/javascript/psextension-min.js"></script>
 </head>
 
 <body>
@@ -59,6 +58,12 @@
             <!-- <hr> -->
         </div>
         <div class="row">
+            <div class="payScale col-sm-4 backgroundText">
+                <script src="https://www.payscale.com/syndication/start_large_v3r.aspx?instance=1&js=1&v=1&af=&job=&city=&state=&country=United States&textcolor=333333&backgroundcolor=a5d34c"></script>
+                <div class="payScaleBelowForm">Accurate, real-time
+                    <a class="payScaleLink" target="_blank" rel="nofollow" href="http://www.payscale.com/research/US/Country=United_States/Salary">salaries</a> for thousands of <a class="payScaleLink" target="_blank" rel="nofollow" href="http://www.payscale.com/career-news">careers</a>.
+                </div>
+            </div>
             <div class="col-sm-4 backgroundText" id="jobsListHere">
                 <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi magna turpis, bibendum at rhoncus vel, tincidunt ut libero.</p>
                 <p> Donec varius dui vel lacus pellentesque, ut sagittis tellus ultricies. Praesent semper egestas velit a pulvinar. Etiam consectetur facilisis magna interdum convallis.</p>
@@ -73,79 +78,78 @@
                         <div class="form-group">
                             <label class="form-control-label col-sm-2" for="job-input">Job Title</label>
                             <!-- add awesplete -->
-                                <div class="col-sm-8">
-                                    <input type="text" class="awesomplete form-control form-control-danger col-sm-2" name="jobtitle" id="job-input" placeholder="Mechanical Engineer">
-                                </div>
+                            <div class="col-sm-8">
+                                <input type="text" class="awesomplete form-control form-control-danger col-sm-2" name="jobtitle" id="job-input" placeholder="Mechanical Engineer">
+                            </div>
                         </div>
                         <div class="form-group">
                             <label class="form-control-label col-sm-2" for="city-input">City</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control form-control-danger col-sm-2" name="cityName" id="city-input" placeholder="Chicago">
-                                </div>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control form-control-danger col-sm-2" name="cityName" id="city-input" placeholder="Chicago">
+                            </div>
                         </div>
                         <div class="form-group">
                             <label class="form-control-label col-sm-2" for="state-input">State</label>
-                                <div class="col-sm-8">
-                                    <select class="form-control" id="state-input">
-                                        <option></option>
-                                        <option>AL</option>
-                                        <option>AK</option>
-                                        <option>AZ</option>
-                                        <option>AR</option>
-                                        <option>CA</option>
-                                        <option>CO</option>
-                                        <option>CT</option>
-                                        <option>DE</option>
-                                        <option>DC</option>
-                                        <option>FL</option>
-                                        <option>GA</option>
-                                        <option>HI</option>
-                                        <option>ID</option>
-                                        <option>IL</option>
-                                        <option>IN</option>
-                                        <option>IA</option>
-                                        <option>KS</option>
-                                        <option>KY</option>
-                                        <option>LA</option>
-                                        <option>ME</option>
-                                        <option>MD</option>
-                                        <option>MA</option>
-                                        <option>MI</option>
-                                        <option>MN</option>
-                                        <option>MS</option>
-                                        <option>MO</option>
-                                        <option>MT</option>
-                                        <option>NE</option>
-                                        <option>NV</option>
-                                        <option>NH</option>
-                                        <option>NJ</option>
-                                        <option>NM</option>
-                                        <option>NY</option>
-                                        <option>NC</option>
-                                        <option>ND</option>
-                                        <option>OH</option>
-                                        <option>OK</option>
-                                        <option>OR</option>
-                                        <option>PA</option>
-                                        <option>RI</option>
-                                        <option>SC</option>
-                                        <option>SD</option>
-                                        <option>TN</option>
-                                        <option>TX</option>
-                                        <option>UT</option>
-                                        <option>VT</option>
-                                        <option>VA</option>
-                                        <option>WA</option>
-                                        <option>WV</option>
-                                        <option>WI</option>
-                                        <option>WY</option>
-                                    </select> 
-                                </div> 
+                            <div class="col-sm-8">
+                                <select class="form-control" id="state-input">
+                                    <option></option>
+                                    <option>AL</option>
+                                    <option>AK</option>
+                                    <option>AZ</option>
+                                    <option>AR</option>
+                                    <option>CA</option>
+                                    <option>CO</option>
+                                    <option>CT</option>
+                                    <option>DE</option>
+                                    <option>DC</option>
+                                    <option>FL</option>
+                                    <option>GA</option>
+                                    <option>HI</option>
+                                    <option>ID</option>
+                                    <option>IL</option>
+                                    <option>IN</option>
+                                    <option>IA</option>
+                                    <option>KS</option>
+                                    <option>KY</option>
+                                    <option>LA</option>
+                                    <option>ME</option>
+                                    <option>MD</option>
+                                    <option>MA</option>
+                                    <option>MI</option>
+                                    <option>MN</option>
+                                    <option>MS</option>
+                                    <option>MO</option>
+                                    <option>MT</option>
+                                    <option>NE</option>
+                                    <option>NV</option>
+                                    <option>NH</option>
+                                    <option>NJ</option>
+                                    <option>NM</option>
+                                    <option>NY</option>
+                                    <option>NC</option>
+                                    <option>ND</option>
+                                    <option>OH</option>
+                                    <option>OK</option>
+                                    <option>OR</option>
+                                    <option>PA</option>
+                                    <option>RI</option>
+                                    <option>SC</option>
+                                    <option>SD</option>
+                                    <option>TN</option>
+                                    <option>TX</option>
+                                    <option>UT</option>
+                                    <option>VT</option>
+                                    <option>VA</option>
+                                    <option>WA</option>
+                                    <option>WV</option>
+                                    <option>WI</option>
+                                    <option>WY</option>
+                                </select>
+                            </div>
                         </div>
                         <button class="btn btn-info" id="submit-btn">Submit</button>
-                
-                </form>
-            </div>
+                    </form>
+                </div>
             </div>
             <div class="col-sm-4 backgroundText" id="jobStats">
                 <img class="newpaperImage" src="./assets/images/placeholder.png">
@@ -161,20 +165,11 @@
         <div class="row">
             <div id="textHere"></div>
         </div>
-        <!-- Ignore this for now. Stacy's work in progress below -->
-
-<!--         <script src="https://cdn-payscale.com/js/psextension-min.js"></script>
-        <div style="width: 300px; border: solid 1px #a5d34c; border-width: 5px 1px 5px 1px; font-family:'Open Sans', sans-serif; font-size:11px; color: #333333;">
-            <script src="https://www.payscale.com/syndication/start_large_v3r.aspx?instance=1&js=1&v=1&af=&job=&city=&state=&country=United States&textcolor=333333&backgroundcolor=a5d34c"></script>
-            <div style="margin-left: 5px; color:#333333; font-family:'Open Sans', sans-serif; font-size:11px; line-height:11px; height:20px; padding-top:2px; text-align:center;">Accurate, real-time <a style="color: #0066cc" target="_blank" rel="nofollow" href="http://www.payscale.com/research/US/Country=United_States/Salary">salaries</a> for thousands of <a style="color: #0066cc" target="_blank" rel="nofollow" href="http://www.payscale.com/career-news">careers</a>.</div>
-        </div> -->
-        
     </div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_GC-33tMoeP_2GlBptjFH0ZIcER8Ztqg"></script>
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
     <script src="http://jawj.github.io/OverlappingMarkerSpiderfier/bin/oms.min.js"></script>
     <script src="assets/javascript/apps.js" type="text/javascript"></script>
-    
 </body>
 
 </html>
