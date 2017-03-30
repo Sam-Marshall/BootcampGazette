@@ -103,10 +103,19 @@ $(document).ready(function() {
                     url: queryURLgeo,
                     method: "GET"
                 }).done(function(response) {
-
+                    //getting storing user city and state in variables to return weather of location
                     var userLocation = response.results[0].formatted_address;
-                    console.log(userLocation);
+                    var userCity = response.results[0].address_components[3].long_name;
+                    var userState = response.results[0].address_components[5].short_name;
+                    var userCityState = userCity + "," + userState;
+
+                    getWeather(userCityState);
+
+                    console.log(userCityState);
+                    console.log(response.results[0].address_components[3].long_name);
+                    console.log(response.results[0].address_components[5].short_name);
                     $("#userlocation").text(userLocation);
+
                 });
             });
         }
@@ -140,6 +149,18 @@ $(document).ready(function() {
             $(".article-2 .date").text(article2.publishedAt);
 
         });
+    }
+
+    function getWeather(location) {
+        var weatherAPIKey = "6600f874ba527145933cc89563343b71";
+        var getweatherURL = "http://api.openweathermap.org/data/2.5/weather?q="+ location +"&appid=" + weatherAPIKey;
+        $.ajax({
+            url: getweatherURL,
+            method: "GET"
+        }).done(function(response) {
+            console.log(response);
+        });
+
     }
 
     getNews();
@@ -394,7 +415,7 @@ $(document).ready(function() {
                     url: queryURLcity,
                     method: "GET"
                 }).done(function(responsecity) {
-                    
+
                     var locationElement = responsecity.results[0].geometry.location;
                     locationArray.push(locationElement);
 
@@ -418,9 +439,9 @@ $(document).ready(function() {
         });
 
 
-        $("#payScaleBtn").on("click", function (){ 
-        $(".payScale").toggleClass("hidden");
-       });
+        $("#payScaleBtn").on("click", function() {
+            $(".payScale").toggleClass("hidden");
+        });
 
 
     }); //submit button
