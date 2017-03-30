@@ -6,6 +6,9 @@
             font-family: OldNewspaperTypes;
             src: local('OldNewspaperTypes'), url('../images/OldNewspaperTypes.ttf');
         }
+        .wrapper{
+            min-width: 600px;
+        }
         
         #TitleImage {
             width: 100%;
@@ -53,7 +56,7 @@
             position: relative;
             /*float: left;*/
         }
-        .mapPayScaleWrapper{
+        #mapPayScaleParent{
             position: relative;
         }
         
@@ -97,7 +100,8 @@
             width: 100%;
         }
         
-        .payScale {
+        .payScale { 
+            min-width: 270px;
             width: 30%;
             border: solid 1px #a5d34c;
             border-width: 3px 3px 3px 3px;
@@ -108,6 +112,7 @@
             color: #333333;
             display: none;
             position: absolute;
+            top: 0;
         }
         
         .payScaleBelowForm {
