@@ -323,6 +323,10 @@ $(document).ready(function() {
         $(".payScale").css('display', 'block');
         $(".article-2").css('display', 'none');
         $("#glassdoorTable").css('display', 'block');
+        $("#formEntry").css('display', 'none');
+        $('.topBarInfo').css('display', 'none');
+        $('.line').css('display', 'none');
+        $('#TitleImage').css('display', 'none');
         $('#job-input').css("background", 'white');
         $('#city-input').css("background", 'white');
         $('#state-input').css("background", 'white');
@@ -340,10 +344,12 @@ $(document).ready(function() {
         jobPostDate = [];
 
         job = $("#job-input").val().trim();
+        $('#jobSearchPosition').html(job);
         job = job.split(' ').join('+');
         var jobCity = $("#city-input").val().trim();
         var jobState = $("#state-input").val().trim();
         jobLocation = jobCity + ", " + jobState;
+        $('#jobSearchLocation').html(jobLocation);
         var jobGeoCenter = "http://maps.googleapis.com/maps/api/geocode/json?address=Bangalore&sensor=false";
         console.log(jobLocation);
         console.log(jobGeoCenter);
