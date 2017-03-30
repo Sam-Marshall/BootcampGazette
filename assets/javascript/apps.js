@@ -188,7 +188,7 @@ $(document).ready(function() {
 
             // var trHTML = '';
 
-            //Work in Progress
+            //Send objects from within the employer array that has been clicked on Google Maps 
             var div = $('<div>');
 
             var overallRating = response.response.employers[0].overallRating;
@@ -207,8 +207,8 @@ $(document).ready(function() {
             tableRow.append(columnThree);
             tableRow.append(columnFour);
 
-            div.append(tableRow);
-            $('#newRowHere').append(div);
+            // div.append(tableRow);
+            $('#newRowHere').append(tableRow);
 
 
 
