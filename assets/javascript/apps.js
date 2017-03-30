@@ -184,16 +184,28 @@ $(document).ready(function() {
             console.log("Work Life Balance Rating: " + response.response.employers[0].workLifeBalanceRating);
             console.log("Recommend To Friend Rating: " + response.response.employers[0].recommendToFriendRating);
 
-            var trHTML = $('<div>');
-            var overallRating = response.response.employers[0].overallRating;
-            var cultureAndValuesRating = response.response.employers[0].cultureAndValuesRating;
-            var workLifeBalanceRating = response.response.employers[0].workLifeBalanceRating;
-            var recommendToFriendRating = response.response.employers[0].recommendToFriendRating;
+            // var trHTML = '';
 
-            $.each(response.response.employers[0], function() {
-                trHTML = '<tr><td>' + response.response.employers[0].overallRating + '</td></tr>';
-                $('#glassdoorTable').append(trHTML);
-            })
+            //Work in Progress
+            var overallRating = '<td>' + response.response.employers[0].overallRating + '</td>';
+            var cultureAndValuesRating = '<td>' + response.response.employers[0].cultureAndValuesRating + '</td>';
+            var workLifeBalanceRating = '<td>' + response.response.employers[0].workLifeBalanceRating + '</td>';
+            var recommendToFriendRating = '<td>' + response.response.employers[0].recommendToFriendRating + '</td>';
+
+            var tableRow = $('<tr>');
+            tableRow.append(overallRating);
+            tableRow.append(cultureAndValuesRating);
+            tableRow.append(workLifeBalanceRating);
+            tableRow.append(recommendToFriendRating);
+
+            $('#glassdoorTable').append(tableRow);
+
+
+
+            // $.each(response.response.employers[0], function() {
+            //     trHTML = '<tr><td>' + response.response.employers[0].overallRating + '</td></tr>';
+            //     $('#glassdoorTable').append(trHTML);
+            // })
 
 
         });

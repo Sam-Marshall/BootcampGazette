@@ -76,8 +76,8 @@
         }
         
         .articleImage {
-            height: 230px;
-            width: 400px;
+            height: auto;
+            width: 100%;
             margin: 7px;
         }
         #glassdoorTable{
