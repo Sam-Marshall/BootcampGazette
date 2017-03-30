@@ -35,12 +35,12 @@ $(document).ready(function() {
             '<span id="PayscaleSalaryCalculatorReset1" class="spnLaquo" onclick="javascript:PayScaleExtension.resetSalaryCalculatorV3R(\'PayscaleSalaryCalculatorContent1\',\'PayscaleSalaryCalculatorResults1\', \'PayscaleSalaryCalculatorReset1\')">&laquo;</span> Salary Research' +
             '</div>' +
 
-            '<div id="SalaryResearchLogo">' +
-            '<a rel="nofollow" href="http://www.payscale.com/?af=&src=calcA3" target="_blank">' +
-            '<img id="payscaleLogo" src="https://cdn-payscale.com/images/powered-by-payscale.png" alt="PayScale"/>' +
-            '</a>' +
-            '</div>' +
-            '</div>' +
+            // '<div id="SalaryResearchLogo">' +
+            // '<a rel="nofollow" href="http://www.payscale.com/?af=&src=calcA3" target="_blank">' +
+            // '<img id="payscaleLogo" src="https://cdn-payscale.com/images/powered-by-payscale.png" alt="PayScale"/>' +
+            // '</a>' +
+            // '</div>' +
+            // '</div>' +
 
             '<div id="PayscaleSalaryCalculatorContent1">' +
             '<form id="PayScale_startModule" name="startModule" action="https://www.payscale.com/syndication/total_pay_chart.aspx" method="get">' +
@@ -48,14 +48,14 @@ $(document).ready(function() {
 
             '<tr valign="middle">' +
             '<td>' +
-            '<label>Job Title</label>' +
+            '<label style="font-family: OldNewspaperTypes">Job Title</label>' +
             '<input type="text" name="jobTitle" class="payscaleText" id="PayScale_jobTitle1" value="" placeholder=" e.g. Mechanical Engineer" maxlength="100"/>' +
             '</td>' +
             '</tr>' +
 
             '<tr id="startModule_cityRow">' +
             '<td>' +
-            '<label>City</label>' +
+            '<label style="font-family: OldNewspaperTypes">City</label>' +
             '<input type="text" name="city" class="payscaleText" id="PayScale_city1" value="" placeholder=" e.g. Chicago" maxlength="100"/>' +
             '</td>' +
             '</tr>' +
@@ -63,13 +63,13 @@ $(document).ready(function() {
             '<tr id="stateRow" style="display: ">' +
             '<td valign="bottom">' +
             '<label>' +
-            '<span id="startModule_stateLabel">State</span>' +
+            '<span style="font-family: OldNewspaperTypes" id="startModule_stateLabel">State</span>' +
             '</label>' +
 
             '<div>' +
             '<span id="startModule_stateDropDown_dropDown"><span>' +
             '<select class="clsCountryDropDown" id="PayScale_stateDropDown1" name="state" onchange=""><option value="">- Select State -</option></span><br /><span><option value="Alabama">Alabama</option></span><br /><span><option value="Alaska">Alaska</option></span><br /><span><option value="Arizona">Arizona</option></span><br /><span><option value="Arkansas">Arkansas</option></span><br /><span><option value="California">California</option></span><br /><span><option value="Colorado">Colorado</option></span><br /><span><option value="Connecticut">Connecticut</option></span><br /><span><option value="Delaware">Delaware</option></span><br /><span><option value="District of Columbia">District of Columbia</option></span><br /><span><option value="Florida">Florida</option></span><br /><span><option value="Georgia">Georgia</option></span><br /><span><option value="Hawaii">Hawaii</option></span><br /><span><option value="Idaho">Idaho</option></span><br /><span><option value="Illinois">Illinois</option></span><br /><span><option value="Indiana">Indiana</option></span><br /><span><option value="Iowa">Iowa</option></span><br /><span><option value="Kansas">Kansas</option></span><br /><span><option value="Kentucky">Kentucky</option></span><br /><span><option value="Louisiana">Louisiana</option></span><br /><span><option value="Maine">Maine</option></span><br /><span><option value="Maryland">Maryland</option></span><br /><span><option value="Massachusetts">Massachusetts</option></span><br /><span><option value="Michigan">Michigan</option></span><br /><span><option value="Minnesota">Minnesota</option></span><br /><span><option value="Mississippi">Mississippi</option></span><br /><span><option value="Missouri">Missouri</option></span><br /><span><option value="Montana">Montana</option></span><br /><span><option value="Nebraska">Nebraska</option></span><br /><span><option value="Nevada">Nevada</option></span><br /><span><option value="New Hampshire">New Hampshire</option></span><br /><span><option value="New Jersey">New Jersey</option></span><br /><span><option value="New Mexico">New Mexico</option></span><br /><span><option value="New York">New York</option></span><br /><span><option value="North Carolina">North Carolina</option></span><br /><span><option value="North Dakota">North Dakota</option></span><br /><span><option value="Ohio">Ohio</option></span><br /><span><option value="Oklahoma">Oklahoma</option></span><br /><span><option value="Oregon">Oregon</option></span><br /><span><option value="Pennsylvania">Pennsylvania</option></span><br /><span><option value="Rhode Island">Rhode Island</option></span><br /><span><option value="South Carolina">South Carolina</option></span><br /><span><option value="South Dakota">South Dakota</option></span><br /><span><option value="Tennessee">Tennessee</option></span><br /><span><option value="Texas">Texas</option></span><br /><span><option value="Utah">Utah</option></span><br /><span><option value="Vermont">Vermont</option></span><br /><span><option value="Virginia">Virginia</option></span><br /><span><option value="Washington">Washington</option></span><br /><span><option value="West Virginia">West Virginia</option></span><br /><span><option value="Wisconsin">Wisconsin</option></span><br /><span><option value="Wyoming">Wyoming</option></span><br /><span></select></span></span></div>' +
-            '<img id="submitPSButtonImage" src="https://cdn-payscale.com/images/syndication/submit-button-70x27.png" onclick="javascript:PayScaleExtension.displaySalaryCalculatorV3R(document.getElementById(\'PayScale_jobTitle1\').value,document.getElementById(\'PayScale_city1\').value,document.getElementById(\'PayScale_stateDropDown1\').value,document.getElementById(\'PayScale_country1\').value, \'#333333\', \'#a5d34c\',\'PayscaleSalaryCalculatorContent1\', false, \'PayscaleSalaryCalculatorResults1\', \'PayscaleSalaryCalculatorReset1\');return false;" />' +
+            '<button id="submitPSButtonImage" class="btn btn-default" onclick="javascript:PayScaleExtension.displaySalaryCalculatorV3R(document.getElementById(\'PayScale_jobTitle1\').value,document.getElementById(\'PayScale_city1\').value,document.getElementById(\'PayScale_stateDropDown1\').value,document.getElementById(\'PayScale_country1\').value, \'#333333\', \'#a5d34c\',\'PayscaleSalaryCalculatorContent1\', false, \'PayscaleSalaryCalculatorResults1\', \'PayscaleSalaryCalculatorReset1\');return false;">Submit</button>' +
             '</td>' +
             '</tr>' +
 
@@ -419,6 +419,12 @@ $(document).ready(function() {
             console.log(response);
 
         });
+
+
+        $("#payScaleBtn").on("click", function (){ 
+        $(".payScale").toggleClass("hidden");
+       });
+
 
     }); //submit button
 
