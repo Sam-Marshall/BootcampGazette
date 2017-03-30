@@ -258,3 +258,6 @@
         #mapPayScaleParent{
             display: none;
         }
+        #insertWeather{
+            margin-top: 5px;
+        }
