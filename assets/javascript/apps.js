@@ -178,12 +178,17 @@ $(document).ready(function() {
             method: 'GET',
             dataType: 'jsonp'
         }).done(function(response) {
-            console.log(response.response.employers[0].overallRating);
-            console.log(response.response.employers[0].cultureAndValuesRating);
-            console.log(response.response.employers[0].workLifeBalanceRating);
-            console.log(response.response.employers[0].recommendToFriendRating);
+            console.log(response.response.employers);
+            console.log("Overall Rating: " + response.response.employers[0].overallRating);
+            console.log("Culture and Values Rating: " + response.response.employers[0].cultureAndValuesRating);
+            console.log("Work Life Balance Rating: " + response.response.employers[0].workLifeBalanceRating);
+            console.log("Recommend To Friend Rating: " + response.response.employers[0].recommendToFriendRating);
 
-            var trHTML = '';
+            var trHTML = $('<div>');
+            var overallRating = response.response.employers[0].overallRating;
+            var cultureAndValuesRating = response.response.employers[0].cultureAndValuesRating;
+            var workLifeBalanceRating = response.response.employers[0].workLifeBalanceRating;
+            var recommendToFriendRating = response.response.employers[0].recommendToFriendRating;
 
             $.each(response.response.employers[0], function() {
                 trHTML = '<tr><td>' + response.response.employers[0].overallRating + '</td></tr>';
@@ -303,6 +308,7 @@ $(document).ready(function() {
         $(".article-1").css('display', 'none');
         $(".payScale").css('display', 'block');
         $(".article-2").css('display', 'none');
+        $("#glassdoorTable").css('display', 'block');
 
         //empty variables for new search
         locationArray = [];

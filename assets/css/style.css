@@ -80,6 +80,12 @@
             width: 400px;
             margin: 7px;
         }
+        #glassdoorTable{
+            margin: 15px;
+            padding: 2px;
+            display: none;
+            width: 100%;
+        }
         
         .payScale {
             width: 30%;
