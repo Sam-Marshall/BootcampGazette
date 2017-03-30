@@ -186,8 +186,6 @@ $(document).ready(function() {
             console.log("Work Life Balance Rating: " + response.response.employers[0].workLifeBalanceRating);
             console.log("Recommend To Friend Rating: " + response.response.employers[0].recommendToFriendRating);
 
-            // var trHTML = '';
-
             //Send objects from within the employer array that has been clicked on Google Maps 
             var div = $('<div>');
 
@@ -209,14 +207,6 @@ $(document).ready(function() {
 
             // div.append(tableRow);
             $('#newRowHere').append(tableRow);
-
-
-
-            // $.each(response.response.employers[0], function() {
-            //     trHTML = '<tr><td>' + response.response.employers[0].overallRating + '</td></tr>';
-            //     $('#glassdoorTable').append(trHTML);
-            // })
-
 
         });
     }
