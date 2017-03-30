@@ -355,11 +355,13 @@ $(document).ready(function() {
 
         job = $("#job-input").val().trim();
         $('#jobSearchPosition').html(job);
+        $('#jobSearchPosition2').html(job);
         job = job.split(' ').join('+');
         var jobCity = $("#city-input").val().trim();
         var jobState = $("#state-input").val().trim();
         jobLocation = jobCity + ", " + jobState;
         $('#jobSearchLocation').html(jobLocation);
+        $('#jobSearchLocation2').html(jobLocation);
         var jobGeoCenter = "http://maps.googleapis.com/maps/api/geocode/json?address=Bangalore&sensor=false";
         console.log(jobLocation);
         console.log(jobGeoCenter);
