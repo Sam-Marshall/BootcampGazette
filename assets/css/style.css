@@ -6,8 +6,20 @@
             font-family: OldNewspaperTypes;
             src: local('OldNewspaperTypes'), url('../images/OldNewspaperTypes.ttf');
         }
-        .wrapper{
+        
+        .wrapper {
             min-width: 600px;
+        }
+
+        p {
+            text-indent: 25px;
+            color: #808080;
+        }
+        
+        body {
+            color: #000;
+            background-image: url('../images/bedge_grunge.png');
+            font-family: OldNewspaperTypes !important;
         }
         
         #TitleImage {
@@ -33,15 +45,6 @@
             text-align: center;
         }
         
-        .backgroundText {
-            margin-top: 5px;
-        }
-        
-        .autoSize {
-            width: 100%;
-            height: auto;
-        }
-        
         .stateAffordHead {
             text-align: center;
         }
@@ -54,9 +57,9 @@
             margin-right: 10px;
             margin-top: 10px;
             position: relative;
-            /*float: left;*/
         }
-        #mapPayScaleParent{
+        
+        #mapPayScaleParent {
             position: relative;
         }
         
@@ -64,8 +67,6 @@
             width: 100%;
             margin-top: 15px;
             text-align: center;
-            /*  border-style: solid;
-    border-color: #808080;*/
             box-sizing: border-box;
         }
         
@@ -74,17 +75,6 @@
             height: auto;
             text-align: center;
             margin: 5px;
-        }
-        
-        p {
-            text-indent: 25px;
-            color: #808080;
-        }
-        
-        body {
-            color: #000;
-            background-image: url('../images/bedge_grunge.png');
-            font-family: OldNewspaperTypes !important;
         }
         
         .articleImage {
@@ -100,25 +90,26 @@
             width: 100%;
         }
         
-        .payScale { 
-            min-width: 270px;
+        .payScale {
+            min-width: 300px;
+            max-width: 450px;
             width: 30%;
             border: solid 1px #a5d34c;
             border-width: 3px 3px 3px 3px;
-            font-family: 'Open Sans', sans-serif;
+            font-family: OldNewspaperTypes !important;
             margin: 10px;
             padding: 15px;
             font-size: 11px;
             color: #333333;
             display: none;
             position: absolute;
-            top: 0;
+            bottom: 0;
         }
         
         .payScaleBelowForm {
             margin-left: 5px;
             color: #333333;
-            font-family: 'Open Sans', sans-serif;
+            font-family: OldNewspaperTypes !important;
             font-size: 11px;
             line-height: 11px;
             height: 20px;
@@ -208,7 +199,7 @@
             float: left;
             background-color: #ffffff;
             color: #333333;
-            font-family: 'Open Sans', sans-serif;
+            font-family: OldNewspaperTypes !important;
             font-size: 18px;
             font-weight: bold;
             line-height: 42px;
