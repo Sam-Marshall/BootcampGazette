@@ -326,6 +326,8 @@ $(document).ready(function() {
         $('#job-input').css("background", 'white');
         $('#city-input').css("background", 'white');
         $('#state-input').css("background", 'white');
+        $("#state-cost-table").removeClass('hidden');
+       
 
         //empty variables for new search
         locationArray = [];
@@ -346,6 +348,9 @@ $(document).ready(function() {
         console.log(jobLocation);
         console.log(jobGeoCenter);
         console.log(jobLocationLatLong);
+
+        
+        $("#state-cost-header").html("How affordable is " + jobCity.toUpperCase() +"?");
 
         var queryURL = "http://service.dice.com/api/rest/jobsearch/v1/simple.json?text=" + job + "&city=" + jobCity + ",+" + jobState;
         console.log(queryURL);
@@ -390,7 +395,15 @@ $(document).ready(function() {
             $.when.apply(this, promises).then(myMap);
         }); //done function
 
-
+//getting city costs from Numbeo
+    var CityCostURL = "https://www.numbeo.com/api/city_prices?api_key=x0nilg3vso6mp1&query="+jobCity;
+        $.ajax({
+            url: CityCostURL,
+            method: "GET",
+        }).done(function(response) {
+              console.log(response);
+     
+          });
 
     }); //submit button
 
