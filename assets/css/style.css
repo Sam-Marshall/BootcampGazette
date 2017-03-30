@@ -40,8 +40,8 @@
         }
         
         #map {
-            height: 350px;
-            width: 65%;
+            width: 800px;
+            height: 400px;
             text-align: center;
             margin: 0 auto;
             margin-top: 10px;
@@ -80,7 +80,8 @@
             width: 100%;
             margin: 7px;
         }
-        #glassdoorTable{
+        
+        #glassdoorTable {
             margin: 15px;
             padding: 2px;
             display: none;
