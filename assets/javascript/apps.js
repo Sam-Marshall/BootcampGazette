@@ -182,7 +182,16 @@ $(document).ready(function() {
             method: 'GET',
             dataType: 'jsonp'
         }).done(function(response) {
-            console.log(response.response.employers[0]);
+            console.log(response.response.employers[0].overallRating);
+
+            var trHTML = '';
+
+            $.each(response.response.employers[0], function(i, item){
+                trHTML += '<tr><td>' + item + '</td><td>' + response.response.employers[0].overallRating + '</td></tr>';
+                $('#glassdoorTable').append(trHTML);
+            })
+
+
         });
     }
 
