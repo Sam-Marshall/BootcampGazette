@@ -348,6 +348,7 @@ $(document).ready(function() {
 
         //Hide articles, show data tables/forms, change input field backgrounds to white
         $(".article-1").css('display', 'none');
+        $("#insertWeather").css('display', 'none');
         $(".payScale").css('display', 'block');
         $('#mapPayScaleParent').css('display', 'block');
         $(".article-2").css('display', 'none');
