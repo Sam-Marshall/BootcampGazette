@@ -247,3 +247,10 @@
         .newsImg:hover {
             opacity: 0.7;
         }
+        #helpWanted{
+            background-color: black;
+            color: #D3D3D3;
+            height: auto;
+            padding: 7px;
+            border-radius: 5px;
+        }
