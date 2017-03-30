@@ -180,34 +180,40 @@ $(document).ready(function() {
             method: 'GET',
             dataType: 'jsonp'
         }).done(function(response) {
-            console.log(response.response.employers);
+             console.log(response.response.employers);
             console.log("Overall Rating: " + response.response.employers[0].overallRating);
             console.log("Culture and Values Rating: " + response.response.employers[0].cultureAndValuesRating);
             console.log("Work Life Balance Rating: " + response.response.employers[0].workLifeBalanceRating);
             console.log("Recommend To Friend Rating: " + response.response.employers[0].recommendToFriendRating);
+            console.log("Company Name: " + response.response.employers[0].name);
 
-            //Send objects from within the employer array that has been clicked on Google Maps 
+            // var trHTML = '';
+
+            //Work in Progress
+            //Fixed append to #newReow
             var div = $('<div>');
 
             var overallRating = response.response.employers[0].overallRating;
             var cultureAndValuesRating = response.response.employers[0].cultureAndValuesRating;
             var workLifeBalanceRating = response.response.employers[0].workLifeBalanceRating;
             var recommendToFriendRating = response.response.employers[0].recommendToFriendRating;
+            var companyName = response.response.employers[0].name;
 
             var tableRow = $('<tr>');
-            var columnOne = $('<td>').text(overallRating);
-            var columnTwo = $('<td>').text(cultureAndValuesRating);
-            var columnThree = $('<td>').text(workLifeBalanceRating);
-            var columnFour = $('<td>').text(recommendToFriendRating);
+            var columnOne = $('<td>').text(companyName);
+            var columnTwo = $('<td>').text(overallRating);
+            var columnThree = $('<td>').text(cultureAndValuesRating);
+            var columnFour = $('<td>').text(workLifeBalanceRating);
+            var columnFive = $('<td>').text(recommendToFriendRating);
 
             tableRow.append(columnOne);
             tableRow.append(columnTwo);
             tableRow.append(columnThree);
             tableRow.append(columnFour);
+            tableRow.append(columnFive);
 
             // div.append(tableRow);
             $('#newRowHere').append(tableRow);
-
         });
     }
 
