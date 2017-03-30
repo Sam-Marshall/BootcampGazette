@@ -317,10 +317,15 @@ $(document).ready(function() {
             return;
         }
         generatePayScaleTable();
+
+        //Hide articles, show data tables/forms, change input field backgrounds to white
         $(".article-1").css('display', 'none');
         $(".payScale").css('display', 'block');
         $(".article-2").css('display', 'none');
         $("#glassdoorTable").css('display', 'block');
+        $('#job-input').css("background", 'white');
+        $('#city-input').css("background", 'white');
+        $('#state-input').css("background", 'white');
 
         //empty variables for new search
         locationArray = [];
@@ -331,10 +336,6 @@ $(document).ready(function() {
         jobCompanyArray = [];
         job = "";
         jobPostDate = [];
-
-        $('#textHere').html("");
-
-        // marker.setMap(null);
 
         job = $("#job-input").val().trim();
         job = job.split(' ').join('+');
