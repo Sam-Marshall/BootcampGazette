@@ -231,6 +231,7 @@ $(document).ready(function() {
             var mapProp = {
                 center: new gm.LatLng(jobLocationLatLong[0].lat, jobLocationLatLong[0].lng),
                 zoom: 9,
+                scrollwheel: false,
             };
 
             console.log(jobUrlArray);
