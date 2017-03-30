@@ -93,17 +93,17 @@
         .payScale {
             min-width: 300px;
             max-width: 450px;
-            width: 30%;
+            width: 40%;
          /*   border: solid 1px #a5d34c;
             border-width: 3px 3px 3px 3px;*/
             font-family: OldNewspaperTypes !important;
-            margin: 10px;
+            margin: 7px;
             padding: 15px;
             font-size: 11px;
             color: #333333;
             display: none;
             position: absolute;
-            margin-top: -500px;
+            margin-top: -580px;
         }
         
         .payScaleBelowForm {
@@ -229,6 +229,8 @@
         
         #payScaleBtn {
             margin-top: -1300px;
-            width: 300px;
+            margin-left: 19px;
+            width: 345px;
             height: 50px;
+            font-size: 20px;
         }
