@@ -183,6 +183,9 @@ $(document).ready(function() {
             dataType: 'jsonp'
         }).done(function(response) {
             console.log(response.response.employers[0].overallRating);
+            console.log(response.response.employers[0].cultureAndValuesRating);
+            console.log(response.response.employers[0].workLifeBalanceRating);
+            console.log(response.response.employers[0].recommendToFriendRating);
 
             var trHTML = '';
 
