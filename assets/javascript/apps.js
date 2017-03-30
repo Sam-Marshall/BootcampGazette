@@ -69,7 +69,7 @@ $(document).ready(function() {
             '<div>' +
             '<span id="startModule_stateDropDown_dropDown"><span>' +
             '<select class="clsCountryDropDown" id="PayScale_stateDropDown1" name="state" onchange=""><option value="">- Select State -</option></span><br /><span><option value="Alabama">Alabama</option></span><br /><span><option value="Alaska">Alaska</option></span><br /><span><option value="Arizona">Arizona</option></span><br /><span><option value="Arkansas">Arkansas</option></span><br /><span><option value="California">California</option></span><br /><span><option value="Colorado">Colorado</option></span><br /><span><option value="Connecticut">Connecticut</option></span><br /><span><option value="Delaware">Delaware</option></span><br /><span><option value="District of Columbia">District of Columbia</option></span><br /><span><option value="Florida">Florida</option></span><br /><span><option value="Georgia">Georgia</option></span><br /><span><option value="Hawaii">Hawaii</option></span><br /><span><option value="Idaho">Idaho</option></span><br /><span><option value="Illinois">Illinois</option></span><br /><span><option value="Indiana">Indiana</option></span><br /><span><option value="Iowa">Iowa</option></span><br /><span><option value="Kansas">Kansas</option></span><br /><span><option value="Kentucky">Kentucky</option></span><br /><span><option value="Louisiana">Louisiana</option></span><br /><span><option value="Maine">Maine</option></span><br /><span><option value="Maryland">Maryland</option></span><br /><span><option value="Massachusetts">Massachusetts</option></span><br /><span><option value="Michigan">Michigan</option></span><br /><span><option value="Minnesota">Minnesota</option></span><br /><span><option value="Mississippi">Mississippi</option></span><br /><span><option value="Missouri">Missouri</option></span><br /><span><option value="Montana">Montana</option></span><br /><span><option value="Nebraska">Nebraska</option></span><br /><span><option value="Nevada">Nevada</option></span><br /><span><option value="New Hampshire">New Hampshire</option></span><br /><span><option value="New Jersey">New Jersey</option></span><br /><span><option value="New Mexico">New Mexico</option></span><br /><span><option value="New York">New York</option></span><br /><span><option value="North Carolina">North Carolina</option></span><br /><span><option value="North Dakota">North Dakota</option></span><br /><span><option value="Ohio">Ohio</option></span><br /><span><option value="Oklahoma">Oklahoma</option></span><br /><span><option value="Oregon">Oregon</option></span><br /><span><option value="Pennsylvania">Pennsylvania</option></span><br /><span><option value="Rhode Island">Rhode Island</option></span><br /><span><option value="South Carolina">South Carolina</option></span><br /><span><option value="South Dakota">South Dakota</option></span><br /><span><option value="Tennessee">Tennessee</option></span><br /><span><option value="Texas">Texas</option></span><br /><span><option value="Utah">Utah</option></span><br /><span><option value="Vermont">Vermont</option></span><br /><span><option value="Virginia">Virginia</option></span><br /><span><option value="Washington">Washington</option></span><br /><span><option value="West Virginia">West Virginia</option></span><br /><span><option value="Wisconsin">Wisconsin</option></span><br /><span><option value="Wyoming">Wyoming</option></span><br /><span></select></span></span></div>' +
-            '<img id="submitPSButtonImage" src="https://cdn-payscale.com/images/syndication/submit-button-70x27.png" style="cursor: pointer; margin-top: 15px;"onclick="javascript:PayScaleExtension.displaySalaryCalculatorV3R(document.getElementById(\'PayScale_jobTitle1\').value,document.getElementById(\'PayScale_city1\').value,document.getElementById(\'PayScale_stateDropDown1\').value,document.getElementById(\'PayScale_country1\').value, \'#333333\', \'#a5d34c\',\'PayscaleSalaryCalculatorContent1\', false, \'PayscaleSalaryCalculatorResults1\', \'PayscaleSalaryCalculatorReset1\');return false;" />' +
+            '<img id="submitPSButtonImage" src="https://cdn-payscale.com/images/syndication/submit-button-70x27.png" onclick="javascript:PayScaleExtension.displaySalaryCalculatorV3R(document.getElementById(\'PayScale_jobTitle1\').value,document.getElementById(\'PayScale_city1\').value,document.getElementById(\'PayScale_stateDropDown1\').value,document.getElementById(\'PayScale_country1\').value, \'#333333\', \'#a5d34c\',\'PayscaleSalaryCalculatorContent1\', false, \'PayscaleSalaryCalculatorResults1\', \'PayscaleSalaryCalculatorReset1\');return false;" />' +
             '</td>' +
             '</tr>' +
 
@@ -187,18 +187,26 @@ $(document).ready(function() {
             // var trHTML = '';
 
             //Work in Progress
-            var overallRating = '<td>' + response.response.employers[0].overallRating + '</td>';
-            var cultureAndValuesRating = '<td>' + response.response.employers[0].cultureAndValuesRating + '</td>';
-            var workLifeBalanceRating = '<td>' + response.response.employers[0].workLifeBalanceRating + '</td>';
-            var recommendToFriendRating = '<td>' + response.response.employers[0].recommendToFriendRating + '</td>';
+            var div = $('<div>');
+
+            var overallRating = response.response.employers[0].overallRating;
+            var cultureAndValuesRating = response.response.employers[0].cultureAndValuesRating;
+            var workLifeBalanceRating = response.response.employers[0].workLifeBalanceRating;
+            var recommendToFriendRating = response.response.employers[0].recommendToFriendRating;
 
             var tableRow = $('<tr>');
-            tableRow.append(overallRating);
-            tableRow.append(cultureAndValuesRating);
-            tableRow.append(workLifeBalanceRating);
-            tableRow.append(recommendToFriendRating);
+            var columnOne = $('<td>').text(overallRating);
+            var columnTwo = $('<td>').text(cultureAndValuesRating);
+            var columnThree = $('<td>').text(workLifeBalanceRating);
+            var columnFour = $('<td>').text(recommendToFriendRating);
 
-            $('#glassdoorTable').append(tableRow);
+            tableRow.append(columnOne);
+            tableRow.append(columnTwo);
+            tableRow.append(columnThree);
+            tableRow.append(columnFour);
+
+            div.append(tableRow);
+            $('#newRowHere').append(div);
 
 
 
