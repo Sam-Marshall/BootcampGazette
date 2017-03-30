@@ -330,6 +330,7 @@ $(document).ready(function() {
         //Hide articles, show data tables/forms, change input field backgrounds to white
         $(".article-1").css('display', 'none');
         $(".payScale").css('display', 'block');
+        $('#mapPayScaleParent').css('display', 'block');
         $(".article-2").css('display', 'none');
         $("#payScaleBtn").removeClass('hidden');
         $("#glassdoorTable").css('display', 'block');
@@ -401,8 +402,9 @@ $(document).ready(function() {
                     url: queryURLcity,
                     method: "GET"
                 }).done(function(responsecity) {
-
-                    locationArray.push(responsecity.results[0].geometry.location);
+                    
+                    var locationElement = responsecity.results[0].geometry.location;
+                    locationArray.push(locationElement);
 
 
                 }); //done function
