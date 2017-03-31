@@ -22,9 +22,17 @@ $(document).ready(function() {
     var jobPostDate = [];
     var htmlPayScaleForm = "";
 
+    var config = {
+        apiKey: "AIzaSyAbJ91qY97twuQ2Pro2lVB7Fq0-O-d8u94",
+        authDomain: "jobportal-17688.firebaseapp.com",
+        databaseURL: "https://jobportal-17688.firebaseio.com",
+        projectId: "jobportal-17688",
+        storageBucket: "jobportal-17688.appspot.com",
+        messagingSenderId: "550571516137"
+    };
+    firebase.initializeApp(config);
 
-    
-
+    var database = firebase.database();
 
     function generatePayScaleTable() {
         htmlPayScaleForm =
@@ -156,7 +164,7 @@ $(document).ready(function() {
 
     function getWeather(location) {
         var weatherAPIKey = "6600f874ba527145933cc89563343b71";
-        var getweatherURL = "http://api.openweathermap.org/data/2.5/weather?q="+ location +"&appid=" + weatherAPIKey;
+        var getweatherURL = "http://api.openweathermap.org/data/2.5/weather?q=" + location + "&appid=" + weatherAPIKey;
         $.ajax({
             url: getweatherURL,
             method: "GET"
@@ -165,12 +173,12 @@ $(document).ready(function() {
             var humidity = response.main.humidity;
             console.log(humidity);
             $('#localHumidity').html(humidity + "%");
-            var temperature = Math.round((9/5)*(response.main.temp - 273)+32);
+            var temperature = Math.round((9 / 5) * (response.main.temp - 273) + 32);
             $('#localTemp').html(temperature + "F");
-            var tempHigh = Math.round((9/5)*(response.main.temp_max - 273)+32);
+            var tempHigh = Math.round((9 / 5) * (response.main.temp_max - 273) + 32);
             $('#highTemp').html(tempHigh + "F");
-            var tempLow = Math.round((9/5)*(response.main.temp_min - 273)+32);
-             $('#lowTemp').html(tempLow + "F");
+            var tempLow = Math.round((9 / 5) * (response.main.temp_min - 273) + 32);
+            $('#lowTemp').html(tempLow + "F");
             console.log(temperature);
         });
 
@@ -214,7 +222,7 @@ $(document).ready(function() {
             method: 'GET',
             dataType: 'jsonp'
         }).done(function(response) {
-             console.log(response.response.employers);
+            console.log(response.response.employers);
             console.log("Overall Rating: " + response.response.employers[0].overallRating);
             console.log("Culture and Values Rating: " + response.response.employers[0].cultureAndValuesRating);
             console.log("Work Life Balance Rating: " + response.response.employers[0].workLifeBalanceRating);
@@ -319,18 +327,18 @@ $(document).ready(function() {
 
             });
             //Mouseover only works for final item added to array. Why?
-            gm.event.addListener(marker, "mouseover", function() {
+            // gm.event.addListener(marker, "mouseover", function() {
 
-                var markerCurrent = "Test: " + this.id;
-                infoWindow.close();
-                infoWindow.setContent(markerCurrent);
-                infoWindow.open(map, marker);
+            //     var markerCurrent = "Test: " + this.id;
+            //     infoWindow.close();
+            //     infoWindow.setContent(markerCurrent);
+            //     infoWindow.open(map, marker);
 
-            });
-            gm.event.addListener(marker, "mouseout", function() {
-                var markerCurrent = " ";
-                infoWindow.close();
-            });
+            // });
+            // gm.event.addListener(marker, "mouseout", function() {
+            //     var markerCurrent = " ";
+            //     infoWindow.close();
+            // });
 
         });
     }
@@ -375,7 +383,7 @@ $(document).ready(function() {
         $('#city-input').css("background", 'white');
         $('#state-input').css("background", 'white');
         $("#state-cost-table").removeClass('hidden');
-        $("#StockTickerContainer").css('display','none');
+        $("#StockTickerContainer").css('display', 'none');
 
 
         //empty variables for new search
