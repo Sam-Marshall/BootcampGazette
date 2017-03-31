@@ -1,4 +1,4 @@
-@font-face {
+    @font-face {
     font-family: OldNewspaperTypes;
     src: local('OldNewspaperTypes'), url('../images/OldNewspaperTypes.ttf');
 }
@@ -256,7 +256,8 @@ body {
     display: none;
 }
 
-#insertWeather, #insertPrevSearches{
+#insertWeather,
+#insertPrevSearches {
     margin-top: 5px;
 }
 
@@ -300,4 +301,10 @@ div.stockTicker span.quote {
 
 .navbar.navbar-inverse {
     margin-bottom: 0px;
+}
+
+#StockTickerContainer {
+    height: 32px;
+    line-height: 32px;
+    overflow: hidden;
 }

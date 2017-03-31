@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    //for information autocomplete for jobs search
+    //information for awesomeplete auto-complete for jobs search
     var input = document.getElementById("job-input");
     var awesomplete = new Awesomplete(input, {
         minChars: 1,
@@ -8,20 +8,29 @@ $(document).ready(function() {
         autoFirst: true
     });
 
+    //auto-complete array of job possibilities
     awesomplete.list = ["UX Architect/Lead", "DevOps Engineer", ".NET Developer", "Business Systems Analyst", "Junior Developer", "Security Risk Analyst", "Software Quality Assurance Analyst", "Data Analyst", "Project Manager", "Mechanical Engineer", "Angular JS Developer", "Chemical Engineer", "Laboratory Technician", "Laboratory Manager", "Developer", "Java Developer", "Java Engineer", "Software Developer", "Sr Software Developer", "Senior Software Developer", "Sr App Developer", "Senior App Developer", "Android Developer", "Java Script/Node Developer", "Application Solution Developer", "Application Solution Engineer", "Python Developer", "Full Stack Developer", "System Engineer", "Senior Security Engineer", "Desktop Support Technician", "Software Engineer"];
 
-    //lat lng storage
+    //lat lng storage of all jobs in array
     var locationArray = [];
-    //job url storage for click event to be fixed later
+    //variable to hold the Dice information regarding job URL of first 50 results
     var jobUrlArray = [];
+    //holds job location formatted as 'city, state'
     var jobLocation = "";
+    //store lat and long of user input city/state searched to center the map on inquiry
     var jobLocationLatLong = [];
+    //variable to hold the Dice information regarding job title of first 50 results
     var jobTitleArray = [];
+    //variable to hold the Dice information regarding company name of first 50 results
     var jobCompanyArray = [];
+    //user input in the 'Job Title' field
     var job = "";
+    //variable to hold Dice information regarding when the job was posted of first 50 results
     var jobPostDate = [];
+    //variable to hold html for payscale form
     var htmlPayScaleForm = "";
 
+    //firebase
     var config = {
         apiKey: "AIzaSyAbJ91qY97twuQ2Pro2lVB7Fq0-O-d8u94",
         authDomain: "jobportal-17688.firebaseapp.com",
@@ -33,11 +42,34 @@ $(document).ready(function() {
     firebase.initializeApp(config);
 
     var database = firebase.database();
+
+    //filling out table for 5 most recent searches
     database.ref().on("value", function(snapshot) {
         console.log(snapshot.val());
+        var svArr = Object.keys(snapshot.val());
+        console.log(svArr);
+
+        for (var i = 0; i < 5; i++) {
+            var toBeSubtracted = i + 1;
+            var lastIndex = svArr.length - toBeSubtracted;
+            var lastKey = svArr[lastIndex];
+            var lastObj = snapshot.val()[lastKey];
+
+            console.log(lastObj);
+            var lastCity = lastObj.city;
+            var lastJob = lastObj.job;
+            var lastState = lastObj.state;
+
+            $('#job' + [i]).html(lastJob);
+            $('#city' + [i]).html(lastCity);
+            $('#state' + [i]).html(lastState);
+
+        }
 
     }, function(errorObject) {
+
         console.log("The firebase read failed: " + errorObject.code);
+
     });
 
     function generatePayScaleTable() {
@@ -138,8 +170,6 @@ $(document).ready(function() {
         }
     }
 
-    geolocator();
-
     //get news for front page
     function getNews() {
         var getNewsURL = "https://newsapi.org/v1/articles?source=techcrunch&apiKey=aabe6370d0da41d19293747b576aab51";
@@ -176,6 +206,7 @@ $(document).ready(function() {
         });
     }
 
+    //get weather info
     function getWeather(location) {
         var weatherAPIKey = "6600f874ba527145933cc89563343b71";
         var getweatherURL = "http://api.openweathermap.org/data/2.5/weather?q=" + location + "&appid=" + weatherAPIKey;
@@ -197,16 +228,11 @@ $(document).ready(function() {
         });
 
     }
-
-    getNews();
-
     //get current time
     function printTime() {
         var currentTime = moment().format('MMMM Do YYYY, h:mm:ss a');
         $("#currentTime").text(currentTime);
     }
-
-    setInterval(printTime, 1000);
 
     //get quote of the day
     function getTodayQuote() {
@@ -222,9 +248,7 @@ $(document).ready(function() {
         });
     }
 
-    getTodayQuote();
-
-
+    //get company information from Glassdoor
     function companyReviewGlassdoor(company) {
         var tpID = "134832";
         var tkID = "gwCCc0SqSnc";
@@ -236,43 +260,65 @@ $(document).ready(function() {
             method: 'GET',
             dataType: 'jsonp'
         }).done(function(response) {
-            console.log(response.response.employers);
-            console.log("Overall Rating: " + response.response.employers[0].overallRating);
-            console.log("Culture and Values Rating: " + response.response.employers[0].cultureAndValuesRating);
-            console.log("Work Life Balance Rating: " + response.response.employers[0].workLifeBalanceRating);
-            console.log("Recommend To Friend Rating: " + response.response.employers[0].recommendToFriendRating);
-            console.log("Company Name: " + response.response.employers[0].name);
 
-            // var trHTML = '';
+            console.log(response.response.employers[0]);
+            var checkIfEmpty = response.response.employers[0];
+            console.log(checkIfEmpty);
 
-            //Work in Progress
-            //Fixed append to #newReow
-            var div = $('<div>');
+            //some companies do not have the usual job info and were showing 'undefined' errors in the console log
+            //this if/else is checking for the existence of the data we expect
+            //if the data does not exist all data in the table defaults to No Data and the logo link takes the user to the 
+            //Glassdoor webpage of the company instead of an external company URL
 
-            var overallRating = response.response.employers[0].overallRating;
-            var cultureAndValuesRating = response.response.employers[0].cultureAndValuesRating;
-            var workLifeBalanceRating = response.response.employers[0].workLifeBalanceRating;
-            var recommendToFriendRating = response.response.employers[0].recommendToFriendRating;
-            var companyName = response.response.employers[0].name;
+            if (typeof checkIfEmpty == "undefined") {
+                var companyLogoURL = "http://images.clipartpanda.com/animated-question-mark-for-powerpoint-1256186461796715642question-mark-icon.svg.hi.png";
+                var overallRating = "No Data";
+                var cultureAndValuesRating = "No Data";
+                var workLifeBalanceRating = "No Data";
+                var recommendToFriendRating = "No Data";
+                var companyName = "No Data";
+                var companyWebsite = response.response.attributionURL;
+
+
+            } else {
+
+                var overallRating = response.response.employers[0].overallRating;
+                var cultureAndValuesRating = response.response.employers[0].cultureAndValuesRating;
+                var workLifeBalanceRating = response.response.employers[0].workLifeBalanceRating;
+                var recommendToFriendRating = response.response.employers[0].recommendToFriendRating;
+                var companyName = response.response.employers[0].name;
+                var companyWebsite = response.response.employers[0].website;
+                var companyLogoURL = response.response.employers[0].squareLogo;
+                //some companies didn't have a logo, so the placeholder is a green questionmark
+                if (companyLogoURL === "") {
+                    companyLogoURL = "http://images.clipartpanda.com/animated-question-mark-for-powerpoint-1256186461796715642question-mark-icon.svg.hi.png";
+                }
+
+            }
+
+            var logoLink = '<a target="_blank" href="http://' + companyWebsite + '"><img src="' + companyLogoURL + '"style="width: 35px; height: 35px;"></a>';
+            console.log(logoLink);
+            console.log(companyLogoURL);
 
             var tableRow = $('<tr>');
-            var columnOne = $('<td>').text(companyName);
-            var columnTwo = $('<td>').text(overallRating);
-            var columnThree = $('<td>').text(cultureAndValuesRating);
-            var columnFour = $('<td>').text(workLifeBalanceRating);
-            var columnFive = $('<td>').text(recommendToFriendRating);
+            var columnOne = $('<td>').append(logoLink);
+            var columnTwo = $('<td>').text(companyName);
+            var columnThree = $('<td>').text(overallRating);
+            var columnFour = $('<td>').text(cultureAndValuesRating);
+            var columnFive = $('<td>').text(workLifeBalanceRating);
+            var columnSix = $('<td>').text(recommendToFriendRating);
 
             tableRow.append(columnOne);
             tableRow.append(columnTwo);
             tableRow.append(columnThree);
             tableRow.append(columnFour);
             tableRow.append(columnFive);
+            tableRow.append(columnSix);
 
             // div.append(tableRow);
             $('#newRowHere').append(tableRow);
         });
     }
-
 
     function myMap() {
 
@@ -292,7 +338,7 @@ $(document).ready(function() {
             var gm = google.maps
             var mapProp = {
                 center: new gm.LatLng(jobLocationLatLong[0].lat, jobLocationLatLong[0].lng),
-                zoom: 9,
+                zoom: 10,
                 scrollwheel: false,
             };
 
@@ -339,8 +385,12 @@ $(document).ready(function() {
                 infoWindow.setContent(contentString);
                 infoWindow.open(map, marker);
 
+                //closes open payscale window if a marker is clicked on (only works on PS form screen not results screen)
+                if ($(".payScale").hasClass("hidden") === false) {
+                    $(".payScale").toggleClass("hidden");
+                }
             });
-            //Mouseover only works for final item added to array. Why?
+            //Mouseover markers pop-up only works for final marker created. Could fix in future
             // gm.event.addListener(marker, "mouseover", function() {
 
             //     var markerCurrent = "Test: " + this.id;
@@ -356,6 +406,11 @@ $(document).ready(function() {
 
         });
     }
+    
+    geolocator();
+    getNews();
+    setInterval(printTime, 1000);
+    getTodayQuote();
 
     $("#submit-btn").on("click", function(event) {
         // input validation block
@@ -385,8 +440,10 @@ $(document).ready(function() {
         $(".article-1").css('display', 'none');
         $("#insertWeather").css('display', 'none');
         $(".payScale").css('display', 'block');
+        $('#insertPrevSearches').css('display', 'none');
         $('#mapPayScaleParent').css('display', 'block');
         $(".article-2").css('display', 'none');
+        $(".article-3").css('display', 'none');
         $("#payScaleBtn").removeClass('hidden');
         $("#glassdoorTable").css('display', 'block');
         $("#formEntry").css('display', 'none');
@@ -420,9 +477,6 @@ $(document).ready(function() {
         $('#jobSearchLocation').html(jobLocation);
         $('#jobSearchLocation2').html(jobLocation);
         var jobGeoCenter = "http://maps.googleapis.com/maps/api/geocode/json?address=Bangalore&sensor=false";
-        console.log(jobLocation);
-        console.log(jobGeoCenter);
-        console.log(jobLocationLatLong);
 
         database.ref().push({
             job: job,
@@ -477,15 +531,15 @@ $(document).ready(function() {
             $.when.apply(this, promises).then(myMap);
         }); //done function
 
-        //getting city costs from Numbeo
-        var CityCostURL = "https://www.numbeo.com/api/city_prices?api_key=x0nilg3vso6mp1&query=" + jobCity;
-        $.ajax({
-            url: CityCostURL,
-            method: "GET",
-        }).done(function(response) {
-            console.log(response);
+        //getting city costs from Numbeo, leaving out of app for accessibility reasons
+        // var CityCostURL = "https://www.numbeo.com/api/city_prices?api_key=x0nilg3vso6mp1&query=" + jobCity;
+        // $.ajax({
+        //     url: CityCostURL,
+        //     method: "GET",
+        // }).done(function(response) {
+        //     console.log(response);
 
-        });
+        // });
 
 
         $("#payScaleBtn").on("click", function() {
