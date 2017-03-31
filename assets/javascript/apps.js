@@ -365,6 +365,7 @@ $(document).ready(function() {
         $('#city-input').css("background", 'white');
         $('#state-input').css("background", 'white');
         $("#state-cost-table").removeClass('hidden');
+        $("#StockTickerContainer").css('display','none');
 
 
         //empty variables for new search
