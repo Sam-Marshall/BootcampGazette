@@ -33,6 +33,12 @@ $(document).ready(function() {
     firebase.initializeApp(config);
 
     var database = firebase.database();
+    database.ref().on("value", function(snapshot) {
+        console.log(snapshot.val());
+
+    }, function(errorObject){
+        console.log("The firebase read failed: " + errorObject.code);
+    });
 
     function generatePayScaleTable() {
         htmlPayScaleForm =
@@ -399,7 +405,7 @@ $(document).ready(function() {
         job = $("#job-input").val().trim();
         $('#jobSearchPosition').html(job);
         $('#jobSearchPosition2').html(job);
-        job = job.split(' ').join('+');
+
         var jobCity = $("#city-input").val().trim();
         var jobState = $("#state-input").val().trim();
         jobLocation = jobCity + ", " + jobState;
@@ -410,7 +416,13 @@ $(document).ready(function() {
         console.log(jobGeoCenter);
         console.log(jobLocationLatLong);
 
+        database.ref().push({
+            job: job,
+            city: jobCity,
+            state: jobState
+        });
 
+        job = job.split(' ').join('+');
         $("#state-cost-header").html("How affordable is " + jobCity.toUpperCase() + "?");
 
         var queryURL = "http://service.dice.com/api/rest/jobsearch/v1/simple.json?text=" + job + "&city=" + jobCity + ",+" + jobState;

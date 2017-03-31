@@ -1,303 +1,303 @@
-        /**{
+@font-face {
+    font-family: OldNewspaperTypes;
+    src: local('OldNewspaperTypes'), url('../images/OldNewspaperTypes.ttf');
+}
+
+.wrapper {
+    min-width: 600px;
+}
+
+p {
+    text-indent: 25px;
+    color: #808080;
+}
+
+body {
+    color: #000;
+    background-image: url('../images/bedge_grunge.png');
+    font-family: OldNewspaperTypes !important;
+}
+
+#TitleImage {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.line {
+    width: 100%;
+    border-color: #808080;
+    background-color: #808080;
+    height: 2px;
+}
+
+.topBarInfo {
+    width: 100%;
+    color: #808080;
+    margin-bottom: 0px;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.stateAffordHead {
+    text-align: center;
+}
+
+#map {
+    width: 100%;
+    height: 600px;
+    text-align: center;
+    margin-right: 10px;
+    margin-top: 10px;
+    position: relative;
+    border-style: ridge;
+}
+
+#mapPayScaleParent {
+    position: relative;
+}
+
+#formEntry {
+    width: 100%;
+    margin-top: 15px;
+    text-align: center;
     box-sizing: border-box;
-}*/
-        
-        @font-face {
-            font-family: OldNewspaperTypes;
-            src: local('OldNewspaperTypes'), url('../images/OldNewspaperTypes.ttf');
-        }
-        
-        .wrapper {
-            min-width: 600px;
-        }
-        
-        p {
-            text-indent: 25px;
-            color: #808080;
-        }
-        
-        body {
-            color: #000;
-            background-image: url('../images/bedge_grunge.png');
-            font-family: OldNewspaperTypes !important;
-        }
-        
-        #TitleImage {
-            width: 100%;
-            height: auto;
-            margin: 0 auto;
-        }
-        
-        .line {
-            width: 100%;
-            border-color: #808080;
-            background-color: #808080;
-            height: 2px;
-        }
-        
-        .topBarInfo {
-            width: 100%;
-            color: #808080;
-            margin-bottom: 0px;
-            margin-top: 5px;
-            margin-left: 10px;
-            margin-right: 10px;
-            text-align: center;
-        }
-        
-        .stateAffordHead {
-            text-align: center;
-        }
-        
-        #map {
-            width: 100%;
-            height: 600px;
-            text-align: center;
-            margin-right: 10px;
-            margin-top: 10px;
-            position: relative;
-            border-style: ridge;
-        }
-        
-        #mapPayScaleParent {
-            position: relative;
-        }
-        
-        #formEntry {
-            width: 100%;
-            margin-top: 15px;
-            text-align: center;
-            box-sizing: border-box;
-        }
-        
-        .newpaperImage {
-            width: 100%;
-            height: auto;
-            text-align: center;
-            margin: 5px;
-        }
-        
-        .articleImage {
-            height: auto;
-            width: 100%;
-            margin: 7px;
-        }
-        
-        #glassdoorTable {
-            margin: 15px;
-            padding: 2px;
-            display: none;
-            width: 100%;
-        }
-        
-        .payScale {
-            min-width: 300px;
-            max-width: 450px;
-            width: 30%;
-            /*   border: solid 1px #a5d34c;
+}
+
+.newpaperImage {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    margin: 5px;
+}
+
+.articleImage {
+    height: auto;
+    width: 100%;
+    margin: 7px;
+}
+
+#glassdoorTable {
+    margin: 15px;
+    padding: 2px;
+    display: none;
+    width: 100%;
+}
+
+.payScale {
+    min-width: 300px;
+    max-width: 450px;
+    width: 30%;
+    /*   border: solid 1px #a5d34c;
             border-width: 3px 3px 3px 3px;*/
-            font-family: OldNewspaperTypes !important;
-            margin: 7px;
-            padding: 15px;
-            font-size: 11px;
-            color: #333333;
-            display: none;
-            position: absolute;
-            margin-top: -495px;
-        }
-        
-        .payScaleBelowForm {
-            margin-left: 5px;
-            color: #333333;
-            font-family: OldNewspaperTypes !important;
-            font-size: 11px;
-            line-height: 11px;
-            height: 20px;
-            padding-top: 2px;
-            text-align: center;
-        }
-        
-        .payScaleLink {
-            color: #0066cc;
-        }
-        
-        .PayscaleSalaryCalculator table,
-        .PayscaleSalaryCalculator tbody,
-        .PayscaleSalaryCalculator img {
-            margin: 0;
-            padding: 0;
-            border: 0;
-        }
-        
-        #PayscaleSalaryCalculator1 {
-            width: 100%;
-            overflow: hidden;
-            text-align: left;
-            padding: 15px;
-            background-color: #ffffff;
-        }
-        
-        #PayscaleSalaryCalculatorReset1 {
-            cursor: pointer;
-            color: #888;
-            display: none;
-        }
-        
-        #payscaleLogo {
-            border: 0;
-            width: 82;
-            height: 28;
-        }
-        
-        #PayscaleSalaryCalculatorContent1 {
-            margin: 0;
-            width: 100%;
-            min-height: 250px;
-        }
-        
-        #PayScale_startModule {
-            margin: 0;
-            padding: 5px;
-        }
-        
-        #startModuleTable {
-            color: #333333;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 15px;
-            line-height: 15px;
-            width: 100%;
-        }
-        
-        #PayScale_jobTitle1,
-        #PayScale_city1 {
-            width: 100%;
-        }
-        
-        #PayscaleSalaryCalculatorResults1 {
-            margin: 0;
-            width: 100%;
-            min-height: 250px;
-            display: none;
-        }
-        
-        #PayScale_stateDropDown1 {
-            width: 100%;
-            margin: 0;
-            padding: 0;
-        }
-        
-        #PayscaleHeadingSection {
-            width: 100%;
-            min-height: 43px;
-            overflow: auto;
-            height: auto !important;
-            border-bottom: solid 1px #cecece;
-            margin-bottom: 5px;
-        }
-        
-        #SalaryResearch {
-            float: left;
-            background-color: #ffffff;
-            color: #333333;
-            font-family: OldNewspaperTypes !important;
-            font-size: 18px;
-            font-weight: bold;
-            line-height: 42px;
-            margin-left: 15px;
-            text-transform: uppercase;
-        }
-        
-        #SalaryResearchLogo {
-            width: 90px;
-            float: right;
-            margin-top: 5px;
-            margin-bottom: 5px;
-        }
-        
-        .payscaleText {
-            margin-bottom: 3px;
-        }
-        
-        #submitPSButtonImage {
-            cursor: pointer;
-            margin-top: 15px;
-        }
-        
-        #submitPSButtonImage:hover {
-            opacity: 0.5;
-        }
-        
-        #payScaleBtn {
-            position: absolute;
-            min-width: 300px;
-            max-width: 450px;
-            width: auto;
-            height: auto;
-            top: 60px;
-            left: 37px;
-            font-size: 15.5px;
-            padding: 5px;
-        }
-        
-        #payScaleBtn:hover {
-            color: #990000;
-            font-size: 16px;
-        }
-        
-        .newsImg:hover {
-            opacity: 0.7;
-        }
-        #helpWanted{
-            background-color: black;
-            color: #D3D3D3;
-            height: auto;
-            padding: 7px;
-            border-radius: 5px;
-        }
-        #mapPayScaleParent{
-            display: none;
-        }
-        #insertWeather{
-            margin-top: 5px;
-        }
-        /*ticker*/
-        
-        div.stockTicker
-        {
-            font-size: 18px;
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            position: relative;
-        }
-        div.stockTicker span.quote
-        {
-            margin: 0;
-            font-weight: bold;
-            color: #000;
-            padding: 0 5px 0 10px;
-        }
-        .GreenText
-        {
-            color: Green;
-        }
-        .RedText
-        {
-            color: Red;
-        }
-        .up_green
-        {
-            background: url(http://www.codescratcher.com/wp-content/uploads/2014/11/up.gif) no-repeat left center;
-            padding-left: 10px;
-            margin-right: 5px;
-        }
-        .down_red
-        {
-            background: url(http://www.codescratcher.com/wp-content/uploads/2014/11/down.gif) no-repeat left center;
-            padding-left: 10px;
-            margin-right: 5px;
-        }
-        .navbar.navbar-inverse {
-            margin-bottom: 0px;
-        }
-        
+    font-family: OldNewspaperTypes !important;
+    margin: 7px;
+    padding: 15px;
+    font-size: 11px;
+    color: #333333;
+    display: none;
+    position: absolute;
+    margin-top: -495px;
+}
+
+.payScaleBelowForm {
+    margin-left: 5px;
+    color: #333333;
+    font-family: OldNewspaperTypes !important;
+    font-size: 11px;
+    line-height: 11px;
+    height: 20px;
+    padding-top: 2px;
+    text-align: center;
+}
+
+.payScaleLink {
+    color: #0066cc;
+}
+
+.PayscaleSalaryCalculator table,
+.PayscaleSalaryCalculator tbody,
+.PayscaleSalaryCalculator img {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+#PayscaleSalaryCalculator1 {
+    width: 100%;
+    overflow: hidden;
+    text-align: left;
+    padding: 15px;
+    background-color: #ffffff;
+}
+
+#PayscaleSalaryCalculatorReset1 {
+    cursor: pointer;
+    color: #888;
+    display: none;
+}
+
+#payscaleLogo {
+    border: 0;
+    width: 82;
+    height: 28;
+}
+
+#PayscaleSalaryCalculatorContent1 {
+    margin: 0;
+    width: 100%;
+    min-height: 250px;
+}
+
+#PayScale_startModule {
+    margin: 0;
+    padding: 5px;
+}
+
+#startModuleTable {
+    color: #333333;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    line-height: 15px;
+    width: 100%;
+}
+
+#PayScale_jobTitle1,
+#PayScale_city1 {
+    width: 100%;
+}
+
+#PayscaleSalaryCalculatorResults1 {
+    margin: 0;
+    width: 100%;
+    min-height: 250px;
+    display: none;
+}
+
+#PayScale_stateDropDown1 {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#PayscaleHeadingSection {
+    width: 100%;
+    min-height: 43px;
+    overflow: auto;
+    height: auto !important;
+    border-bottom: solid 1px #cecece;
+    margin-bottom: 5px;
+}
+
+#SalaryResearch {
+    float: left;
+    background-color: #ffffff;
+    color: #333333;
+    font-family: OldNewspaperTypes !important;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 42px;
+    margin-left: 15px;
+    text-transform: uppercase;
+}
+
+#SalaryResearchLogo {
+    width: 90px;
+    float: right;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.payscaleText {
+    margin-bottom: 3px;
+}
+
+#submitPSButtonImage {
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+#submitPSButtonImage:hover {
+    opacity: 0.5;
+}
+
+#payScaleBtn {
+    position: absolute;
+    min-width: 300px;
+    max-width: 450px;
+    width: auto;
+    height: auto;
+    top: 60px;
+    left: 37px;
+    font-size: 15.5px;
+    padding: 5px;
+}
+
+#payScaleBtn:hover {
+    color: #990000;
+    font-size: 16px;
+}
+
+.newsImg:hover {
+    opacity: 0.7;
+}
+
+#helpWanted {
+    background-color: black;
+    color: #D3D3D3;
+    height: auto;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+#mapPayScaleParent {
+    display: none;
+}
+
+#insertWeather {
+    margin-top: 5px;
+}
+
+
+/*ticker*/
+
+div.stockTicker {
+    font-size: 18px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+div.stockTicker span.quote {
+    margin: 0;
+    font-weight: bold;
+    color: #000;
+    padding: 0 5px 0 10px;
+}
+
+.GreenText {
+    color: Green;
+}
+
+.RedText {
+    color: Red;
+}
+
+.up_green {
+    background: url(http://www.codescratcher.com/wp-content/uploads/2014/11/up.gif) no-repeat left center;
+    padding-left: 10px;
+    margin-right: 5px;
+}
+
+.down_red {
+    background: url(http://www.codescratcher.com/wp-content/uploads/2014/11/down.gif) no-repeat left center;
+    padding-left: 10px;
+    margin-right: 5px;
+}
+
+.navbar.navbar-inverse {
+    margin-bottom: 0px;
+}
