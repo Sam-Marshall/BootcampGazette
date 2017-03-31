@@ -23,6 +23,9 @@ $(document).ready(function() {
     var htmlPayScaleForm = "";
 
 
+    
+
+
     function generatePayScaleTable() {
         htmlPayScaleForm =
             '<script type="text/javascript" defer="defer">' +
