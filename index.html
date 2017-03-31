@@ -164,16 +164,33 @@
                     <div class="panel panel-default" id="insertWeather">
                         <div class="panel-heading">
                             <h3>Local Weather</h3>
+                            <h6 id="weatherLocation"></h6>
                         </div>
-                        <div class="panel-body">
+                        <div class="panel-body text-center">
                             <table class="table table-striped table-bordered table-hover">
                                 <thead>
-                                    <tr>
+                                    <thead>
                                         <th>Weather</th>
                                         <th>Current Condition</th>
-                                    </tr>
+                                    </thead>
                                 </thead>
                                 <tbody>
+                                    <tr>
+                                        <td>Humidity</td>
+                                        <td id="localHumidity"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Temperature</td>
+                                        <td id="localTemp"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>High Temp</td>
+                                        <td id="highTemp"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Low Temp</td>
+                                        <td id="lowTemp"></td>
+                                    </tr>                                                                        
                                 </tbody>
                             </table>
                         </div>

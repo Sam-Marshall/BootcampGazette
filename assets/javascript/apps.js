@@ -111,7 +111,7 @@ $(document).ready(function() {
                     var userCity = response.results[0].address_components[3].long_name;
                     var userState = response.results[0].address_components[5].short_name;
                     var userCityState = userCity + "," + userState;
-
+                    $('#weatherLocation').html(userCityState);
                     getWeather(userCityState);
 
                     console.log(userCityState);
@@ -161,7 +161,17 @@ $(document).ready(function() {
             url: getweatherURL,
             method: "GET"
         }).done(function(response) {
-            console.log(response);
+            console.log(response.main);
+            var humidity = response.main.humidity;
+            console.log(humidity);
+            $('#localHumidity').html(humidity + "%");
+            var temperature = Math.round((9/5)*(response.main.temp - 273)+32);
+            $('#localTemp').html(temperature + "F");
+            var tempHigh = Math.round((9/5)*(response.main.temp_max - 273)+32);
+            $('#highTemp').html(tempHigh + "F");
+            var tempLow = Math.round((9/5)*(response.main.temp_min - 273)+32);
+             $('#lowTemp').html(tempLow + "F");
+            console.log(temperature);
         });
 
     }
