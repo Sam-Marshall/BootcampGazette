@@ -36,7 +36,7 @@ $(document).ready(function() {
     database.ref().on("value", function(snapshot) {
         console.log(snapshot.val());
 
-    }, function(errorObject){
+    }, function(errorObject) {
         console.log("The firebase read failed: " + errorObject.code);
     });
 
@@ -150,6 +150,7 @@ $(document).ready(function() {
             console.log(response);
             var article1 = response.articles[0];
             var article2 = response.articles[1];
+            var article3 = response.articles[2];
 
             $(".article-1 .title").text(article1.title);
             $(".article-1 .description").text(article1.description);
@@ -164,6 +165,13 @@ $(document).ready(function() {
             $(".article-2 .articleImage").addClass("newsImg");
             $(".article-2 .link").attr("href", article2.url);
             $(".article-2 .date").text(article2.publishedAt);
+
+            $(".article-3 .title").text(article3.title);
+            $(".article-3 .description").text(article3.description);
+            $(".article-3 .articleImage").attr("src", article3.urlToImage);
+            $(".article-3 .articleImage").addClass("newsImg");
+            $(".article-3 .link").attr("href", article3.url);
+            $(".article-3 .date").text(article3.publishedAt);
 
         });
     }

@@ -256,7 +256,7 @@ body {
     display: none;
 }
 
-#insertWeather {
+#insertWeather, #insertPrevSearches{
     margin-top: 5px;
 }
 
