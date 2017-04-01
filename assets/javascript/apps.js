@@ -209,7 +209,7 @@ $(document).ready(function() {
     //get weather info
     function getWeather(location) {
         var weatherAPIKey = "6600f874ba527145933cc89563343b71";
-        var getweatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + location + "&appid=" + weatherAPIKey;
+        var getweatherURL = "http://api.openweathermap.org/data/2.5/weather?q=" + location + "&appid=" + weatherAPIKey;
         $.ajax({
             url: getweatherURL,
             method: "GET"
@@ -236,7 +236,7 @@ $(document).ready(function() {
 
     //get quote of the day
     function getTodayQuote() {
-        var getQuoteURL = "https://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=localjsonp";
+        var getQuoteURL = "http://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=localjsonp";
         $.ajax({
             url: getQuoteURL,
             dataType: 'jsonp',
