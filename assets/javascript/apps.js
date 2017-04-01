@@ -75,7 +75,7 @@ $(document).ready(function() {
     function generatePayScaleTable() {
         htmlPayScaleForm =
             '<script type="text/javascript" defer="defer">' +
-            'PayScaleExtension.affiliateId = \'\';PayScaleExtension.srcId = \'calcA3\';PayScaleExtension.ServiceURL = \'http://www.payscale.com\';PayScaleExtension.init();' +
+            'PayScaleExtension.affiliateId = \'\';PayScaleExtension.srcId = \'calcA3\';PayScaleExtension.ServiceURL = \'https://www.payscale.com\';PayScaleExtension.init();' +
             '</script>' +
 
             '<div class="PayscaleSalaryCalculator" id="PayscaleSalaryCalculator1">' +
