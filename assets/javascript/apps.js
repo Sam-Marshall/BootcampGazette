@@ -261,14 +261,7 @@ $(document).ready(function() {
             dataType: 'jsonp'
         }).done(function(response) {
 
-            console.log(response.response.employers[0]);
             var checkIfEmpty = response.response.employers[0];
-            console.log(checkIfEmpty);
-
-            //some companies do not have the usual job info and were showing 'undefined' errors in the console log
-            //this if/else is checking for the existence of the data we expect
-            //if the data does not exist all data in the table defaults to No Data and the logo link takes the user to the 
-            //Glassdoor webpage of the company instead of an external company URL
 
             if (typeof checkIfEmpty == "undefined") {
                 var companyLogoURL = "./assets/images/questionMark.png";
