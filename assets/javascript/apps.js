@@ -85,7 +85,7 @@ $(document).ready(function() {
             '</div>' +
 
             // '<div id="SalaryResearchLogo">' +
-            // '<a rel="nofollow" href="http://www.payscale.com/?af=&src=calcA3" target="_blank">' +
+            // '<a rel="nofollow" href="https://www.payscale.com/?af=&src=calcA3" target="_blank">' +
             // '<img id="payscaleLogo" src="https://cdn-payscale.com/images/powered-by-payscale.png" alt="PayScale"/>' +
             // '</a>' +
             // '</div>' +
@@ -209,7 +209,7 @@ $(document).ready(function() {
     //get weather info
     function getWeather(location) {
         var weatherAPIKey = "6600f874ba527145933cc89563343b71";
-        var getweatherURL = "http://api.openweathermap.org/data/2.5/weather?q=" + location + "&appid=" + weatherAPIKey;
+        var getweatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + location + "&appid=" + weatherAPIKey;
         $.ajax({
             url: getweatherURL,
             method: "GET"
@@ -236,7 +236,7 @@ $(document).ready(function() {
 
     //get quote of the day
     function getTodayQuote() {
-        var getQuoteURL = "http://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=localjsonp";
+        var getQuoteURL = "https://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=localjsonp";
         $.ajax({
             url: getQuoteURL,
             dataType: 'jsonp',
@@ -253,7 +253,7 @@ $(document).ready(function() {
         var tpID = "134832";
         var tkID = "gwCCc0SqSnc";
         jobLocation = jobLocation.split(' ').join('+');
-        var companyUrl = "http://api.glassdoor.com/api/api.htm?v=1&format=json&t.p=" + tpID + "&t.k=" + tkID + "&action=employers&q=" + company + "&l=" + jobLocation;
+        var companyUrl = "https://api.glassdoor.com/api/api.htm?v=1&format=json&t.p=" + tpID + "&t.k=" + tkID + "&action=employers&q=" + company + "&l=" + jobLocation;
         console.log(companyUrl);
         $.ajax({
             url: companyUrl,
@@ -271,7 +271,7 @@ $(document).ready(function() {
             //Glassdoor webpage of the company instead of an external company URL
 
             if (typeof checkIfEmpty == "undefined") {
-                var companyLogoURL = "http://images.clipartpanda.com/animated-question-mark-for-powerpoint-1256186461796715642question-mark-icon.svg.hi.png";
+                var companyLogoURL = "https://images.clipartpanda.com/animated-question-mark-for-powerpoint-1256186461796715642question-mark-icon.svg.hi.png";
                 var overallRating = "No Data";
                 var cultureAndValuesRating = "No Data";
                 var workLifeBalanceRating = "No Data";
@@ -291,12 +291,12 @@ $(document).ready(function() {
                 var companyLogoURL = response.response.employers[0].squareLogo;
                 //some companies didn't have a logo, so the placeholder is a green questionmark
                 if (companyLogoURL === "") {
-                    companyLogoURL = "http://images.clipartpanda.com/animated-question-mark-for-powerpoint-1256186461796715642question-mark-icon.svg.hi.png";
+                    companyLogoURL = "https://images.clipartpanda.com/animated-question-mark-for-powerpoint-1256186461796715642question-mark-icon.svg.hi.png";
                 }
 
             }
 
-            var logoLink = '<a target="_blank" href="http://' + companyWebsite + '"><img src="' + companyLogoURL + '"style="width: 35px; height: 35px;"></a>';
+            var logoLink = '<a target="_blank" href="https://' + companyWebsite + '"><img src="' + companyLogoURL + '"style="width: 35px; height: 35px;"></a>';
             console.log(logoLink);
             console.log(companyLogoURL);
 
@@ -476,7 +476,7 @@ $(document).ready(function() {
         jobLocation = jobCity + ", " + jobState;
         $('#jobSearchLocation').html(jobLocation);
         $('#jobSearchLocation2').html(jobLocation);
-        // var jobGeoCenter = "http://maps.googleapis.com/maps/api/geocode/json?address=Bangalore&sensor=false";
+        // var jobGeoCenter = "https://maps.googleapis.com/maps/api/geocode/json?address=Bangalore&sensor=false";
 
         database.ref().push({
             job: job,
@@ -487,7 +487,7 @@ $(document).ready(function() {
         job = job.split(' ').join('+');
         // $("#state-cost-header").html("How affordable is " + jobCity.toUpperCase() + "?");
 
-        var queryURL = "http://service.dice.com/api/rest/jobsearch/v1/simple.json?text=" + job + "&city=" + jobCity + ",+" + jobState;
+        var queryURL = "https://service.dice.com/api/rest/jobsearch/v1/simple.json?text=" + job + "&city=" + jobCity + ",+" + jobState;
         console.log(queryURL);
         $.ajax({
             url: queryURL,
