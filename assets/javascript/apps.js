@@ -476,7 +476,7 @@ $(document).ready(function() {
         jobLocation = jobCity + ", " + jobState;
         $('#jobSearchLocation').html(jobLocation);
         $('#jobSearchLocation2').html(jobLocation);
-        var jobGeoCenter = "http://maps.googleapis.com/maps/api/geocode/json?address=Bangalore&sensor=false";
+        // var jobGeoCenter = "http://maps.googleapis.com/maps/api/geocode/json?address=Bangalore&sensor=false";
 
         database.ref().push({
             job: job,
@@ -485,7 +485,7 @@ $(document).ready(function() {
         });
 
         job = job.split(' ').join('+');
-        $("#state-cost-header").html("How affordable is " + jobCity.toUpperCase() + "?");
+        // $("#state-cost-header").html("How affordable is " + jobCity.toUpperCase() + "?");
 
         var queryURL = "http://service.dice.com/api/rest/jobsearch/v1/simple.json?text=" + job + "&city=" + jobCity + ",+" + jobState;
         console.log(queryURL);
