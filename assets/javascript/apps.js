@@ -271,7 +271,7 @@ $(document).ready(function() {
             //Glassdoor webpage of the company instead of an external company URL
 
             if (typeof checkIfEmpty == "undefined") {
-                var companyLogoURL = "https://images.clipartpanda.com/animated-question-mark-for-powerpoint-1256186461796715642question-mark-icon.svg.hi.png";
+                var companyLogoURL = "./assets/images/questionMark.png";
                 var overallRating = "No Data";
                 var cultureAndValuesRating = "No Data";
                 var workLifeBalanceRating = "No Data";
@@ -291,7 +291,7 @@ $(document).ready(function() {
                 var companyLogoURL = response.response.employers[0].squareLogo;
                 //some companies didn't have a logo, so the placeholder is a green questionmark
                 if (companyLogoURL === "") {
-                    companyLogoURL = "https://images.clipartpanda.com/animated-question-mark-for-powerpoint-1256186461796715642question-mark-icon.svg.hi.png";
+                    companyLogoURL = "./assets/images/questionMark.png";
                 }
 
             }
@@ -487,7 +487,7 @@ $(document).ready(function() {
         job = job.split(' ').join('+');
         // $("#state-cost-header").html("How affordable is " + jobCity.toUpperCase() + "?");
 
-        var queryURL = "https://service.dice.com/api/rest/jobsearch/v1/simple.json?text=" + job + "&city=" + jobCity + ",+" + jobState;
+        var queryURL = "http://service.dice.com/api/rest/jobsearch/v1/simple.json?text=" + job + "&city=" + jobCity + ",+" + jobState;
         console.log(queryURL);
         $.ajax({
             url: queryURL,
