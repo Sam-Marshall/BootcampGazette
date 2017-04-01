@@ -90,7 +90,7 @@ setInterval(function() {StockPriceTicker();} , 60000);
         function StockPriceTicker() {
             var Symbol = "", CompName = "", Price = "", ChangeInPrice = "", PercentChangeInPrice = ""; 
             var CNames = "^FTSE,^GSPC,^IXIC,GE,BRK-A,BRK-B,GOOGL,AIG,ADM,GS,JPM,RPM,XOM,AAPL,AMD,INTC,BLK,MA,MSFT";
-            var flickerAPI = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20(%22" + CNames + "%22)&env=store://datatables.org/alltableswithkeys";
+            var flickerAPI = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20(%22" + CNames + "%22)&env=store://datatables.org/alltableswithkeys";
             var StockTickerHTML = "";
             
             var StockTickerXML = $.get(flickerAPI, function(xml) { //jquery call to yahoo finance
