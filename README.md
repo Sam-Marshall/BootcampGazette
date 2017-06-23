@@ -1,4 +1,4 @@
 # Bootcamp Gazette
 
 
-![Alt Text](https://media.giphy.com/media/xUA7b1v7AY39a9gRj2/giphy.gif)
+![](http://media.giphy.com/media/xUA7b1v7AY39a9gRj2/giphy.gif)
