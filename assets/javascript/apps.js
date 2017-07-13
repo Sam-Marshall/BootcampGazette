@@ -236,7 +236,7 @@ $(document).ready(function() {
 
     //get quote of the day
     function getTodayQuote() {
-        var getQuoteURL = "http://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=localjsonp";
+        var getQuoteURL = "https://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=localjsonp";
         $.ajax({
             url: getQuoteURL,
             dataType: 'jsonp',
