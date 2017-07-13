@@ -264,7 +264,7 @@ $(document).ready(function() {
             var checkIfEmpty = response.response.employers[0];
 
             if (typeof checkIfEmpty == "undefined") {
-                var companyLogoURL = "./assets/images/questionMark.png";
+                var companyLogoURL = "./images/questionMark.png";
                 var overallRating = "No Data";
                 var cultureAndValuesRating = "No Data";
                 var workLifeBalanceRating = "No Data";
@@ -284,7 +284,7 @@ $(document).ready(function() {
                 var companyLogoURL = response.response.employers[0].squareLogo;
                 //some companies didn't have a logo, so the placeholder is a green questionmark
                 if (companyLogoURL === "") {
-                    companyLogoURL = "./assets/images/questionMark.png";
+                    companyLogoURL = "./images/questionMark.png";
                 }
 
             }
